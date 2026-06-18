@@ -8,7 +8,7 @@ Within each notebook, a **Core** path covers the essentials. Optional **Go
 deeper** cells add advanced material: writing your own SPARQL, extending the
 ontology, or running a planner.
 
-## Planned notebooks
+## Notebooks
 
 - `00_quickstart.ipynb`: **Quickstart.** Load the prebuilt KG and answer a
   planner-selection question and an explanation question through helper
@@ -35,12 +35,12 @@ data:
 
 ```python
 !pip install -q rdflib pandas
-!git clone -q https://github.com/g-nitin/planning-ontology-tutorial.git
-%cd planning-ontology-tutorial
+!git clone -q https://github.com/ai4society/ICAPS26-planning-ontology-tutorial.git
+%cd ICAPS26-planning-ontology-tutorial
 ```
 
 The planner-selection notebook adds `unified-planning up-pyperplan` for its
 optional live-run section. Unified Planning is a third-party library.
 
 Add an **Open in Colab** badge at the top of each notebook pointing to
-`https://colab.research.google.com/github/g-nitin/planning-ontology-tutorial/blob/main/notebooks/<name>.ipynb`.
+`https://colab.research.google.com/github/ai4society/ICAPS26-planning-ontology-tutorial/blob/main/notebooks/<name>.ipynb`.
