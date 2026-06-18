@@ -65,12 +65,12 @@ extending the ontology.
 | Notebook | What it covers | Colab | Source |
 | --- | --- | --- | --- |
 | **Quickstart** | Load the prebuilt KG and answer a planner-selection question and an explanation question through helper functions, no SPARQL required | _(coming)_ | [`notebooks/00_quickstart.ipynb`](notebooks/00_quickstart.ipynb) |
-| **Ontology and KG foundations** | Load the ontology from the PURL with RDFLib, explore the schema and competency questions, ingest a PDDL domain and problem to populate a KG, run sample SPARQL | _(coming)_ | [`notebooks/01_ontology_and_kg.ipynb`](notebooks/01_ontology_and_kg.ipynb) |
+| **Ontology and KG foundations** | Load the ontology from the PURL with RDFLib, explore the schema and competency questions, ingest a PDDL domain and problem to populate a KG, run sample SPARQL | [Open](https://colab.research.google.com/github/g-nitin/planning-ontology-tutorial/blob/main/notebooks/01_ontology_and_kg.ipynb) | [`notebooks/01_ontology_and_kg.ipynb`](notebooks/01_ontology_and_kg.ipynb) |
 | **Planner selection** | Rank planners for `blocksworld` via SPARQL over a prebuilt IPC KG. As an option, run a PDDL planner and write fresh results back into the KG | _(coming)_ | [`notebooks/02_planner_selection.ipynb`](notebooks/02_planner_selection.ipynb) |
 | **Plan explanation** | Retrieve a plan's ordered steps and their explanations from the KG and assemble a template-based narrative | _(coming)_ | [`notebooks/03_plan_explanation.ipynb`](notebooks/03_plan_explanation.ipynb) |
 
-> **Status:** notebooks are in progress. We add the advertising website
-> (`website/`) later.
+> **Status:** notebook 01 is built and runnable; 02 and 03 are in progress. We
+> add the advertising website (`website/`) later.
 
 ## Resources
 

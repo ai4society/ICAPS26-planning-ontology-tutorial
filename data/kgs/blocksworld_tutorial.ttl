@@ -1,0 +1,146 @@
+@prefix po: <https://purl.org/ai4s/ontology/planning#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tut: <https://w3id.org/planning-ontology-tutorial#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+po:blocksworld a po:PlanningDomain ;
+    rdfs:label "blocksworld" ;
+    po:hasAction po:pick-up,
+        po:put-down,
+        po:stack,
+        po:unstack ;
+    po:hasHighRelevancePlanner po:FastDownward,
+        po:LAMA_2011 ;
+    po:hasLowRelevancePlanner po:Probe ;
+    po:hasMediumRelevancePlanner po:BFWS ;
+    po:hasProblem po:problem_3_1 ;
+    po:hasRequirement po:strips .
+
+po:step_1 rdfs:label "unstack b3 b1" ;
+    tut:groundsAction po:unstack ;
+    tut:stepNumber 1 ;
+    tut:stepOf po:plan_3_1 .
+
+po:step_2 rdfs:label "put-down b3" ;
+    tut:groundsAction po:put-down ;
+    tut:stepNumber 2 ;
+    tut:stepOf po:plan_3_1 .
+
+po:step_3 rdfs:label "pick-up b2" ;
+    tut:groundsAction po:pick-up ;
+    tut:stepNumber 3 ;
+    tut:stepOf po:plan_3_1 .
+
+po:step_4 rdfs:label "stack b2 b1" ;
+    tut:groundsAction po:stack ;
+    tut:stepNumber 4 ;
+    tut:stepOf po:plan_3_1 .
+
+po:step_5 rdfs:label "pick-up b3" ;
+    tut:groundsAction po:pick-up ;
+    tut:stepNumber 5 ;
+    tut:stepOf po:plan_3_1 .
+
+po:step_6 rdfs:label "stack b3 b2" ;
+    tut:groundsAction po:stack ;
+    tut:stepNumber 6 ;
+    tut:stepOf po:plan_3_1 .
+
+po:BFWS a po:Planner ;
+    rdfs:label "BFWS" .
+
+po:LAMA_2011 a po:Planner ;
+    rdfs:label "LAMA-2011" .
+
+po:Probe a po:Planner ;
+    rdfs:label "Probe" .
+
+po:b1 a po:ProblemObject ;
+    rdfs:label "b1" .
+
+po:b2 a po:ProblemObject ;
+    rdfs:label "b2" .
+
+po:b3 a po:ProblemObject ;
+    rdfs:label "b3" .
+
+po:eff_pick-up a po:ActionEffect ;
+    rdfs:label "the hand is now holding ?x; ?x is no longer on the table or clear" .
+
+po:eff_put-down a po:ActionEffect ;
+    rdfs:label "?x is placed on the table and is clear; the hand becomes empty" .
+
+po:eff_stack a po:ActionEffect ;
+    rdfs:label "?x is on ?y and clear; the hand becomes empty" .
+
+po:eff_unstack a po:ActionEffect ;
+    rdfs:label "the hand is holding ?x; ?y becomes clear" .
+
+po:pick-up_param0 rdfs:label "?x - block" .
+
+po:pre_pick-up a po:ActionPrecondition ;
+    rdfs:label "block ?x is clear, on the table, and the hand is empty" .
+
+po:pre_put-down a po:ActionPrecondition ;
+    rdfs:label "the hand is holding ?x" .
+
+po:pre_stack a po:ActionPrecondition ;
+    rdfs:label "the hand is holding ?x and ?y is clear" .
+
+po:pre_unstack a po:ActionPrecondition ;
+    rdfs:label "?x is on ?y, ?x is clear, and the hand is empty" .
+
+po:problem_3_1 a po:PlanningProblem ;
+    rdfs:label "problem_3_1" ;
+    po:hasObject po:b1,
+        po:b2,
+        po:b3 ;
+    po:hasPlan po:plan_3_1 .
+
+po:put-down_param0 rdfs:label "?x - block" .
+
+po:stack_param0 rdfs:label "?x - block" .
+
+po:stack_param1 rdfs:label "?y - block" .
+
+po:strips a po:DomainRequirement ;
+    rdfs:label ":strips" .
+
+po:unstack_param0 rdfs:label "?x - block" .
+
+po:unstack_param1 rdfs:label "?y - block" .
+
+po:FastDownward a po:Planner ;
+    rdfs:label "Fast Downward" .
+
+po:put-down rdfs:label "put-down" ;
+    po:hasActionExplanation "Put the held block onto the table; the hand becomes empty."^^xsd:string ;
+    po:hasEffect po:eff_put-down ;
+    po:hasParameter po:put-down_param0 ;
+    po:hasPrecondition po:pre_put-down .
+
+po:unstack rdfs:label "unstack" ;
+    po:hasActionExplanation "Remove a clear block ?x from the block ?y beneath it; the hand then holds it."^^xsd:string ;
+    po:hasEffect po:eff_unstack ;
+    po:hasParameter po:unstack_param0,
+        po:unstack_param1 ;
+    po:hasPrecondition po:pre_unstack .
+
+po:pick-up rdfs:label "pick-up" ;
+    po:hasActionExplanation "Pick up a clear block from the table; afterwards the hand is holding it."^^xsd:string ;
+    po:hasEffect po:eff_pick-up ;
+    po:hasParameter po:pick-up_param0 ;
+    po:hasPrecondition po:pre_pick-up .
+
+po:stack rdfs:label "stack" ;
+    po:hasActionExplanation "Place the held block ?x onto another clear block ?y."^^xsd:string ;
+    po:hasEffect po:eff_stack ;
+    po:hasParameter po:stack_param0,
+        po:stack_param1 ;
+    po:hasPrecondition po:pre_stack .
+
+po:plan_3_1 a po:Plan ;
+    po:hasPlanCost "6"^^xsd:nonNegativeInteger ;
+    po:hasPlanExplanation "To build the tower b1 < b2 < b3, the planner first clears b1 by unstacking b3, then stacks b2 on b1 and finally b3 on b2."^^xsd:string ;
+    po:isGeneratedBy po:FastDownward .
+
