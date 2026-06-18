@@ -1,0 +1,13 @@
+# Core: load and query the planning ontology / knowledge graph
+rdflib>=7.0
+pandas>=2.0
+jupyter                 # Colab already provides this
+
+# Optional: run PDDL planners to add fresh results to the KG.
+# Unified Planning (aiplan4eu) is a third-party library, not part of this tutorial.
+unified-planning>=1.1
+up-pyperplan>=1.1       # pure-Python engine, Colab-friendly
+
+# Optional: knowledge-graph visualization
+networkx>=3.0
+pyvis>=0.3
