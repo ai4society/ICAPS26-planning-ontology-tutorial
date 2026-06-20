@@ -25,8 +25,11 @@ ontology, or running a planner.
   and their `hasActionExplanation` values and assemble a template-based,
   human-readable narrative.
 
-The set can grow. Candidate additions: a competency-questions / SPARQL cookbook,
-and a KG-visualization notebook.
+Each notebook carries optional **Go deeper** visuals and reasoning: a
+schema diagram, an RDFS reasoning step, an interactive graph view (01), a
+relevance heatmap and portfolio chart (02), and a plan-state diagram with
+causal links (03). These need the `viz` extra (`matplotlib`, `pyvis`,
+`networkx`, `owlrl`); the Core path needs only `rdflib` and `pandas`.
 
 ## Colab convention
 
