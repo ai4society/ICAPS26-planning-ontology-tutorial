@@ -6,6 +6,7 @@ not force a matplotlib backend, so it renders inline under the notebook kernel.
 """
 from __future__ import annotations
 
+from base64 import b64encode
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -117,6 +118,14 @@ def _local(uri):
     return str(uri).split("#")[-1].split("/")[-1]
 
 
+def _in_colab():
+    try:
+        import google.colab  # noqa: F401
+    except ImportError:
+        return False
+    return True
+
+
 def draw_schema(onto, po):
     """Draw the ontology schema: subClassOf hierarchy plus object properties.
 
@@ -164,10 +173,11 @@ def kg_to_pyvis(graph, height="500px"):
     """
     from pyvis.network import Network
     labels = {s: str(o) for s, o in graph.subject_objects(RDFS.label)}
-    # "remote" pulls vis-network from a CDN at render time instead of inlining
-    # ~600 KB of library into every notebook; Colab and Jupyter both have network.
+    # Colab executes the generated PyVis document directly, so keep that output
+    # smaller. Local notebook frontends are more reliable with inlined assets.
+    cdn_resources = "remote" if _in_colab() else "in_line"
     net = Network(height=height, width="100%", directed=True,
-                  cdn_resources="remote")
+                  cdn_resources=cdn_resources)
     net.barnes_hut()
     added = set()
     for s, p, o in graph:
@@ -182,8 +192,27 @@ def kg_to_pyvis(graph, height="500px"):
 
 
 def pyvis_html(net):
-    """Return the network's HTML for inline display in a notebook."""
+    """Return the raw PyVis HTML document."""
     try:
         return net.generate_html(notebook=False)
     except TypeError:
         return net.generate_html()
+
+
+def pyvis_display(net):
+    """Return a notebook display object for a PyVis network.
+
+    Local Jupyter frontends commonly leave PyVis blank when the generated
+    document is inserted directly into an output area. Loading it through
+    IPython.display.IFrame gives the PyVis JavaScript a normal document context.
+    Colab already handles the direct document path well.
+    """
+    html = pyvis_html(net)
+    if _in_colab():
+        from IPython.display import HTML
+        return HTML(html)
+    from IPython.display import IFrame
+    encoded = b64encode(html.encode("utf-8")).decode("ascii")
+    src = f"data:text/html;charset=utf-8;base64,{encoded}"
+    height = str(getattr(net, "height", "500px") or "500px")
+    return IFrame(src=src, width="100%", height=height)
