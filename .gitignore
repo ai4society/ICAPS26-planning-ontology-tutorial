@@ -18,3 +18,6 @@ downward/
 .DS_Store
 .idea/
 .vscode/
+
+# Test suite (local only; tutorial users run notebooks, not tests)
+tests/

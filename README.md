@@ -43,6 +43,7 @@ With [uv](https://docs.astral.sh/uv/) (recommended):
 ```bash
 uv sync                   # core packages plus the notebook tooling
 uv sync --extra planner   # add the optional PDDL planner used in notebook 02
+uv sync --extra viz       # add the visualization and reasoning extras
 uv run jupyter lab
 ```
 
@@ -61,7 +62,7 @@ Start with the Quickstart, then open the others in any order. Each runs in Googl
 Colab with no local setup, since the first cell installs dependencies and fetches
 the data. Within each notebook, a **Core** path covers the essentials and optional
 **Go deeper** cells add advanced material such as writing your own SPARQL or
-extending the ontology.
+extending the ontology. The Go-deeper visuals (schema diagram, heatmap, plan-state towers, interactive graph) use the optional viz extra.
 
 | Notebook                        | What it covers                                                                                                                                                 | Colab                                                                                                                                         | Source                                                                         |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
