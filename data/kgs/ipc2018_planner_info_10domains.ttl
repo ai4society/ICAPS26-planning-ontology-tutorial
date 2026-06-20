@@ -1,0 +1,239 @@
+@prefix po-old: <http://www.semanticweb.org/muppa/ontologies/2022/4/plan-ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+po-old:agricola rdfs:label "agricola" ;
+    po-old:hasHighRelevancePlanner po-old:Complementary1,
+        po-old:Delfi1,
+        po-old:Delfi2,
+        po-old:FDMS2,
+        po-old:symb_Bi_dir ;
+    po-old:hasLowRelevancePlanner po-old:Blind,
+        po-old:DecStar,
+        po-old:Metis1,
+        po-old:Metis2,
+        po-old:Scorpion,
+        po-old:Symple_1,
+        po-old:Symple_2,
+        po-old:maplan_1,
+        po-old:maplan_2 ;
+    po-old:hasMediumRelevancePlanner po-old:Complementary2,
+        po-old:FDMS1,
+        po-old:MSP,
+        po-old:Planning_PDBs .
+
+po-old:caldera rdfs:label "caldera" ;
+    po-old:hasHighRelevancePlanner po-old:Complementary2,
+        po-old:Delfi1,
+        po-old:FDMS1,
+        po-old:FDMS2,
+        po-old:Metis1,
+        po-old:Metis2,
+        po-old:Planning_PDBs,
+        po-old:Scorpion ;
+    po-old:hasLowRelevancePlanner po-old:maplan_1,
+        po-old:maplan_2 ;
+    po-old:hasMediumRelevancePlanner po-old:Blind,
+        po-old:Complementary1,
+        po-old:DecStar,
+        po-old:Delfi2,
+        po-old:MSP,
+        po-old:Symple_1,
+        po-old:Symple_2,
+        po-old:symb_Bi_dir .
+
+po-old:data-net rdfs:label "data-net" ;
+    po-old:hasHighRelevancePlanner po-old:Complementary1,
+        po-old:DecStar,
+        po-old:Delfi1,
+        po-old:Delfi2,
+        po-old:MSP,
+        po-old:Planning_PDBs,
+        po-old:Scorpion,
+        po-old:symb_Bi_dir ;
+    po-old:hasLowRelevancePlanner po-old:Blind,
+        po-old:FDMS2,
+        po-old:Symple_1,
+        po-old:Symple_2,
+        po-old:maplan_2 ;
+    po-old:hasMediumRelevancePlanner po-old:Complementary2,
+        po-old:FDMS1,
+        po-old:Metis1,
+        po-old:Metis2,
+        po-old:maplan_1 .
+
+po-old:nurikabe rdfs:label "nurikabe" ;
+    po-old:hasHighRelevancePlanner po-old:Blind,
+        po-old:Complementary1,
+        po-old:Complementary2,
+        po-old:DecStar,
+        po-old:Delfi1,
+        po-old:Delfi2,
+        po-old:FDMS1,
+        po-old:FDMS2,
+        po-old:Metis1,
+        po-old:Metis2,
+        po-old:Planning_PDBs,
+        po-old:Scorpion,
+        po-old:symb_Bi_dir ;
+    po-old:hasLowRelevancePlanner po-old:maplan_1,
+        po-old:maplan_2 ;
+    po-old:hasMediumRelevancePlanner po-old:MSP,
+        po-old:Symple_1,
+        po-old:Symple_2 .
+
+po-old:organinc-synthesis rdfs:label "organinc-synthesis" ;
+    po-old:hasHighRelevancePlanner po-old:Complementary1,
+        po-old:Complementary2,
+        po-old:DecStar,
+        po-old:Delfi1,
+        po-old:Delfi2,
+        po-old:FDMS1,
+        po-old:FDMS2,
+        po-old:MSP,
+        po-old:Metis1,
+        po-old:Metis2,
+        po-old:Planning_PDBs,
+        po-old:Scorpion,
+        po-old:Symple_1,
+        po-old:Symple_2,
+        po-old:symb_Bi_dir ;
+    po-old:hasLowRelevancePlanner po-old:maplan_1,
+        po-old:maplan_2 ;
+    po-old:hasMediumRelevancePlanner po-old:Blind .
+
+po-old:petri-net-align rdfs:label "petri-net-align" ;
+    po-old:hasHighRelevancePlanner po-old:Complementary1,
+        po-old:Complementary2,
+        po-old:Delfi1,
+        po-old:Planning_PDBs,
+        po-old:symb_Bi_dir ;
+    po-old:hasLowRelevancePlanner po-old:FDMS1,
+        po-old:FDMS2,
+        po-old:Scorpion,
+        po-old:Symple_1,
+        po-old:Symple_2,
+        po-old:maplan_1,
+        po-old:maplan_2 ;
+    po-old:hasMediumRelevancePlanner po-old:Blind,
+        po-old:DecStar,
+        po-old:Delfi2,
+        po-old:MSP,
+        po-old:Metis1,
+        po-old:Metis2 .
+
+po-old:settlers rdfs:label "settlers" ;
+    po-old:hasHighRelevancePlanner po-old:Blind,
+        po-old:Complementary1,
+        po-old:Complementary2,
+        po-old:DecStar,
+        po-old:Delfi1,
+        po-old:Delfi2,
+        po-old:FDMS1,
+        po-old:FDMS2,
+        po-old:Metis1,
+        po-old:Planning_PDBs,
+        po-old:Scorpion,
+        po-old:symb_Bi_dir ;
+    po-old:hasLowRelevancePlanner po-old:MSP,
+        po-old:Metis2,
+        po-old:Symple_1,
+        po-old:Symple_2,
+        po-old:maplan_1,
+        po-old:maplan_2 .
+
+po-old:snake rdfs:label "snake" ;
+    po-old:hasHighRelevancePlanner po-old:Blind,
+        po-old:Complementary1,
+        po-old:Complementary2,
+        po-old:DecStar,
+        po-old:Delfi1,
+        po-old:FDMS1,
+        po-old:FDMS2,
+        po-old:MSP,
+        po-old:Planning_PDBs,
+        po-old:Scorpion,
+        po-old:maplan_2 ;
+    po-old:hasLowRelevancePlanner po-old:Symple_1,
+        po-old:Symple_2,
+        po-old:symb_Bi_dir ;
+    po-old:hasMediumRelevancePlanner po-old:Delfi2,
+        po-old:Metis1,
+        po-old:Metis2,
+        po-old:maplan_1 .
+
+po-old:spider rdfs:label "spider" ;
+    po-old:hasHighRelevancePlanner po-old:DecStar,
+        po-old:Scorpion ;
+    po-old:hasLowRelevancePlanner po-old:MSP,
+        po-old:Symple_1,
+        po-old:Symple_2,
+        po-old:maplan_2 ;
+    po-old:hasMediumRelevancePlanner po-old:Blind,
+        po-old:Complementary1,
+        po-old:Complementary2,
+        po-old:Delfi1,
+        po-old:Delfi2,
+        po-old:FDMS1,
+        po-old:FDMS2,
+        po-old:Metis1,
+        po-old:Metis2,
+        po-old:Planning_PDBs,
+        po-old:maplan_1,
+        po-old:symb_Bi_dir .
+
+po-old:termes rdfs:label "termes" ;
+    po-old:hasHighRelevancePlanner po-old:Complementary1,
+        po-old:Complementary2,
+        po-old:Delfi2,
+        po-old:MSP,
+        po-old:Planning_PDBs,
+        po-old:Scorpion,
+        po-old:symb_Bi_dir ;
+    po-old:hasLowRelevancePlanner po-old:Metis1,
+        po-old:Metis2,
+        po-old:maplan_1 ;
+    po-old:hasMediumRelevancePlanner po-old:Blind,
+        po-old:DecStar,
+        po-old:Delfi1,
+        po-old:FDMS1,
+        po-old:FDMS2,
+        po-old:Symple_1,
+        po-old:Symple_2,
+        po-old:maplan_2 .
+
+po-old:Blind rdfs:label "Blind" .
+
+po-old:Complementary1 rdfs:label "Complementary1" .
+
+po-old:Complementary2 rdfs:label "Complementary2" .
+
+po-old:DecStar rdfs:label "DecStar" .
+
+po-old:Delfi1 rdfs:label "Delfi1" .
+
+po-old:Delfi2 rdfs:label "Delfi2" .
+
+po-old:FDMS1 rdfs:label "FDMS1" .
+
+po-old:FDMS2 rdfs:label "FDMS2" .
+
+po-old:MSP rdfs:label "MSP" .
+
+po-old:Metis1 rdfs:label "Metis1" .
+
+po-old:Metis2 rdfs:label "Metis2" .
+
+po-old:Planning_PDBs rdfs:label "Planning_PDBs" .
+
+po-old:Scorpion rdfs:label "Scorpion" .
+
+po-old:Symple_1 rdfs:label "Symple_1" .
+
+po-old:Symple_2 rdfs:label "Symple_2" .
+
+po-old:maplan_1 rdfs:label "maplan_1" .
+
+po-old:maplan_2 rdfs:label "maplan_2" .
+
+po-old:symb_Bi_dir rdfs:label "symb_Bi_dir" .
+
