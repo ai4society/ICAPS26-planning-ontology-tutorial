@@ -104,7 +104,7 @@ def relevance_heatmap(rows):
     fig, ax = plt.subplots(figsize=(0.5 * len(planners) + 3, 0.5 * len(domains) + 2))
     im = ax.imshow(grid, aspect="auto", cmap="YlOrRd", vmin=0, vmax=3)
     ax.set_xticks(range(len(planners)))
-    ax.set_xticklabels(planners, rotation=90, fontsize=7)
+    ax.set_xticklabels(planners, rotation=45, fontsize=7)
     ax.set_yticks(range(len(domains)))
     ax.set_yticklabels(domains, fontsize=8)
     cbar = fig.colorbar(im, ax=ax, ticks=[0, 1, 2, 3])
