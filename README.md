@@ -9,7 +9,9 @@
 > **RDF/OWL knowledge graph**, then exploit that graph for two applications:
 > **data-driven planner selection** and **human-readable plan explanations**.
 
-📅 Venue and schedule: _TBD_ · 🔗 Ontology PURL: <https://purl.org/ai4s/ontology/planning>
+🌐 **Tutorial site:** <https://ai4society.github.io/ICAPS26-planning-ontology-tutorial/>
+
+📅 ICAPS 2026, Dublin, Ireland · Mon, June 29, 2026 · 09:00–12:30 · 🔗 Ontology PURL: <https://purl.org/ai4s/ontology/planning>
 
 ---
 
