@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 12 | Use Case 1 — Planner Selection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-u1 .grid { display: grid; grid-template-columns: 880px 786px; gap: 46px; align-items: center; }
+    .slide-u1 .uc-card { border-radius: 16px; padding: 18px 22px; }
+    .slide-u1 .uc-card.ch { background: var(--conflict-bg); border: 2px solid rgba(192,57,43,0.2); border-left: 8px solid var(--conflict); }
+    .slide-u1 .uc-card.ch h3 { color: var(--conflict); }
+    .slide-u1 .uc-card.ap { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 8px solid var(--garnet); margin-top: 16px; }
+    .slide-u1 .uc-card.ap h3 { color: var(--garnet); }
+    .slide-u1 .uc-card h3 { font-size: 23px; font-weight: 800; }
+    .slide-u1 .uc-card p { color: var(--text); font-size: 22px; line-height: 1.34; margin-top: 8px; }
+    .slide-u1 .uc-card .step { color: var(--garnet); font-weight: 700; }
+    .slide-u1 .table-wrap { background: #fff; border: 3px solid var(--line); border-radius: 18px; overflow: hidden; }
+    .slide-u1 .benchmark-table td, .slide-u1 .benchmark-table th { padding: 16px 18px; }
+    .slide-u1 .win { color: #2e7d32; font-weight: 800; }
+    .slide-u1 .cap { color: var(--muted); font-size: 18px; font-style: italic; text-align: center; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-u1" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Use Case 1 · Performance</div>
+        <h1 class="slide-title" id="slide-title">Identifying the Most Promising Planner</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="grid">
+              <section>
+                <div class="uc-card ch anim-left d1"><h3>Challenge</h3><p>Picking a planner for a new domain is largely trial-and-error across many planner / heuristic combinations.</p></div>
+                <div class="uc-card ap anim-left d2"><h3>Ontology-driven approach</h3>
+                  <p><span class="step">1.</span> Encode IPC-2011 performance as a knowledge graph.<br>
+                     <span class="step">2.</span> Query for the best-performing planner per domain.<br>
+                     <span class="step">3.</span> Apply that <strong>ontology policy</strong> instead of a random choice.</p></div>
+              </section>
+              <section>
+                <div class="table-wrap anim-right d2">
+                  <table class="benchmark-table">
+                    <thead><tr><th>Policy</th><th>Nodes expanded</th><th>Success rate</th></tr></thead>
+                    <tbody>
+                      <tr><td><strong>Ontology policy</strong></td><td class="win">Fewer</td><td class="win">Higher</td></tr>
+                      <tr><td>Random policy</td><td>More</td><td>Lower</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="cap anim d3">Ontology-guided selection expands fewer nodes and solves more instances than a random policy (IPC-2011).</p>
+                <div class="micro-note anim d4" style="margin-top:16px;">Bonus: the ontology also yields <strong>macros</strong> — action-ordering constraints that further speed up planning.</div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

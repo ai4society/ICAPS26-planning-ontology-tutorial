@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 05 | Planning is Structured: PDDL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <script src="./assets/js/anime.min.js"></script>
+  <style>
+    .slide-pddl .pddl-grid { display: grid; grid-template-columns: 720px 942px; gap: 44px; align-items: stretch; }
+    .slide-pddl .code-block { margin: 0; }
+    .slide-pddl .code-block pre { font-size: 21px; line-height: 1.5; }
+    .slide-pddl .code-block .kw { color: var(--garnet); font-weight: 600; }
+    .slide-pddl .right-col { display: flex; flex-direction: column; gap: 16px; }
+    .slide-pddl .struct-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .slide-pddl .struct-card { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-top: 7px solid var(--garnet); border-radius: 14px; padding: 12px 16px; }
+    .slide-pddl .struct-card.blue { border-top-color: var(--blue); }
+    .slide-pddl .struct-card.green { border-top-color: #2e7d32; }
+    .slide-pddl .struct-card h3 { font-size: 23px; font-weight: 800; color: var(--garnet); }
+    .slide-pddl .struct-card.blue h3 { color: var(--blue); }
+    .slide-pddl .struct-card.green h3 { color: #2e7d32; }
+    .slide-pddl .struct-card p { color: var(--text); font-size: 18px; line-height: 1.28; margin-top: 4px; }
+    .slide-pddl .bw-card { background: linear-gradient(180deg, rgba(245,245,245,0.6), #fff); border: 3px solid var(--line); border-radius: 20px; padding: 16px 20px 18px; flex: 1 1 auto; display: flex; flex-direction: column; }
+    .slide-pddl .bw-head { display: flex; align-items: center; justify-content: space-between; }
+    .slide-pddl .bw-tag { background: rgba(26,82,118,0.08); border: 2px solid rgba(26,82,118,0.18); border-radius: 999px; color: var(--blue); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; padding: 6px 14px; }
+    .slide-pddl .bw-step { border-radius: 999px; font-size: 18px; font-weight: 800; padding: 7px 16px; transition: all .3s ease; }
+    .slide-pddl .bw-step.init { background: rgba(26,82,118,0.10); color: var(--blue); }
+    .slide-pddl .bw-step.act  { background: rgba(115,0,10,0.10); color: var(--garnet); }
+    .slide-pddl .bw-step.goal { background: rgba(46,125,50,0.14); color: #2e7d32; }
+    .slide-pddl .bw-stage { position: relative; height: 340px; margin-top: 10px; }
+    .slide-pddl .bw-table { position: absolute; left: 36px; right: 36px; top: 324px; height: 9px; background: #d9c9cb; border-radius: 5px; }
+    .slide-pddl .bw-block { position: absolute; width: 104px; height: 104px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 46px; font-weight: 800; box-shadow: 0 10px 20px rgba(0,0,0,0.18); }
+    .slide-pddl #bwC { left: 360px; top: 220px; background: #2e7d32; }
+    .slide-pddl #bwB { left: 360px; top: 116px; background: #1a5276; }
+    .slide-pddl #bwA { left: 360px; top: 12px;  background: #73000a; }
+    .slide-pddl .bw-status { margin-top: 6px; border-top: 2px dashed rgba(17,17,17,0.1); padding-top: 12px; }
+    .slide-pddl .bw-action { color: var(--garnet); font-family: "Source Code Pro", monospace; font-size: 22px; font-weight: 600; }
+    .slide-pddl .bw-statelabel { color: var(--muted); font-size: 14px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin: 10px 0 6px; }
+    .slide-pddl .bw-preds { display: flex; flex-wrap: wrap; gap: 8px; min-height: 38px; }
+    .slide-pddl .bw-preds span { background: rgba(26,82,118,0.07); border: 1px solid rgba(26,82,118,0.16); border-radius: 8px; color: var(--blue); font-family: "Source Code Pro", monospace; font-size: 17px; padding: 5px 10px; animation: predIn .35s ease both; }
+    .slide-pddl .bw-preds span.new { background: rgba(46,125,50,0.12); border-color: rgba(46,125,50,0.3); color: #2e7d32; font-weight: 600; }
+    @keyframes predIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-pddl" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Background · PDDL</div>
+        <h1 class="slide-title" id="slide-title">Planning is Structured: PDDL</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="pddl-grid">
+              <section class="code-block anim-fade d2">
+                <div class="label">blocksworld · domain &amp; problem (PDDL)</div>
+<pre>(<span class="kw">define</span> (domain blocksworld)
+ (:predicates (on ?x ?y) (clear ?x)
+              (ontable ?x) (holding ?x)
+              (handempty))
+ (:<span class="kw">action</span> stack :parameters (?x ?y)
+   :precondition (and (clear ?y) (holding ?x))
+   :effect (and (on ?x ?y) (clear ?x)
+                (handempty) (not (holding ?x)))))
+
+(<span class="kw">define</span> (problem bw-1)
+ (:objects a b c)
+ (:init (ontable a) (ontable b) (ontable c)
+        (clear a) (clear b) (clear c) (handempty))
+ (:goal (and (on a b) (on b c))))</pre>
+              </section>
+
+              <section class="right-col">
+                <div class="struct-row">
+                  <div class="struct-card anim-fade d3"><h3>Domain</h3><p>Predicates &amp; actions — precondition → effect.</p></div>
+                  <div class="struct-card blue anim-fade d4"><h3>Problem</h3><p>Objects, initial state &amp; goal.</p></div>
+                  <div class="struct-card green anim-fade d5"><h3>Plan</h3><p>Ordered grounded actions.</p></div>
+                </div>
+
+                <div class="bw-card anim-fade d4">
+                  <div class="bw-head">
+                    <span class="bw-tag">Plan executing · Blocksworld</span>
+                    <span class="bw-step goal" id="bwStep">Goal reached ✓</span>
+                  </div>
+                  <div class="bw-stage" id="bwStage">
+                    <div class="bw-table" aria-hidden="true"></div>
+                    <div class="bw-block" id="bwC">C</div>
+                    <div class="bw-block" id="bwB">B</div>
+                    <div class="bw-block" id="bwA">A</div>
+                  </div>
+                  <div class="bw-status">
+                    <div class="bw-action" id="bwAction">goal: (on a b) (on b c)</div>
+                    <div class="bw-statelabel">Resulting state</div>
+                    <div class="bw-preds" id="bwPreds">
+                      <span class="new">(on a b)</span><span class="new">(on b c)</span><span>(ontable c)</span><span>(clear a)</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    (function () {
+      if (new URLSearchParams(location.search).get("render") === "1") return;
+      if (typeof anime === "undefined") return;
+      var stepEl = document.getElementById("bwStep");
+      var actionEl = document.getElementById("bwAction");
+      var predsEl = document.getElementById("bwPreds");
+
+      var phases = [
+        { step: "Initial state", cls: "init",
+          action: "start — every block on the table",
+          preds: [["(ontable a)",0],["(ontable b)",0],["(ontable c)",0],["(clear a)",0],["(clear b)",0],["(clear c)",0],["(handempty)",0]],
+          dur: 1500, run: setInit },
+        { step: "Action 1 of 2", cls: "act",
+          action: "(stack b c)",
+          preds: [["(on b c)",1],["(clear b)",1],["(ontable a)",0],["(ontable c)",0],["(clear a)",0]],
+          dur: 1900, run: moveB },
+        { step: "Action 2 of 2", cls: "act",
+          action: "(stack a b)",
+          preds: [["(on a b)",1],["(on b c)",0],["(ontable c)",0],["(clear a)",1],["(handempty)",0]],
+          dur: 1900, run: moveA },
+        { step: "Goal reached ✓", cls: "goal",
+          action: "goal: (on a b) (on b c)",
+          preds: [["(on a b)",1],["(on b c)",1],["(ontable c)",0],["(clear a)",0]],
+          dur: 2100, run: function () {} }
+      ];
+
+      function setInit() {
+        anime.set("#bwB", { translateX: 220, translateY: 104 });
+        anime.set("#bwA", { translateX: -220, translateY: 208 });
+        anime({ targets: ["#bwA", "#bwB", "#bwC"], opacity: [0.25, 1], duration: 450, easing: "easeOutQuad" });
+      }
+      function moveB() {
+        anime({ targets: "#bwB", keyframes: [{ translateY: -80 }, { translateX: 0 }, { translateY: 0 }], duration: 1500, easing: "easeInOutQuad" });
+      }
+      function moveA() {
+        anime({ targets: "#bwA", keyframes: [{ translateY: -40 }, { translateX: 0 }, { translateY: 0 }], duration: 1500, easing: "easeInOutQuad" });
+      }
+
+      var i = 0;
+      function tick() {
+        var p = phases[i];
+        stepEl.textContent = p.step;
+        stepEl.className = "bw-step " + p.cls;
+        actionEl.textContent = p.action;
+        predsEl.innerHTML = p.preds.map(function (x) {
+          return '<span class="' + (x[1] ? "new" : "") + '">' + x[0] + "</span>";
+        }).join("");
+        p.run();
+        i = (i + 1) % phases.length;
+        setTimeout(tick, p.dur);
+      }
+      setInit();
+      setTimeout(tick, 400);
+    })();
+  </script>
+</body>
+</html>

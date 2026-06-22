@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 23 | From Logs to Explanations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-pl .pipeline { gap: 12px; }
+    .slide-pl .pipeline-step { min-height: 104px; border-radius: 18px; }
+    .slide-pl .pipeline-step.blue { background: linear-gradient(180deg, rgba(115,0,10,0.07), rgba(245,245,245,0.98)); border-color: rgba(115,0,10,0.14); }
+    .slide-pl .pipeline-step strong { font-size: 23px; }
+    .slide-pl .pipeline-step span { font-size: 18px; margin-top: 6px; }
+    .slide-pl .pipeline-arrow { font-size: 36px; }
+    .slide-pl .grid { display: grid; grid-template-columns: 1200px 466px; gap: 34px; align-items: stretch; margin-top: 24px; }
+    .slide-pl .fig { background: #fff; border: 3px solid var(--line); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; }
+    .slide-pl .fig img { display: block; width: 100%; height: 520px; object-fit: contain; }
+    .slide-pl .fig figcaption { color: var(--muted); font-size: 17px; font-style: italic; text-align: center; margin-top: 8px; }
+    .slide-pl .moves { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+    .slide-pl .move { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 8px solid var(--blue); border-radius: 14px; padding: 14px 18px; }
+    .slide-pl .move b { color: var(--garnet); display: block; font-size: 21px; }
+    .slide-pl .move span { color: var(--text); display: block; font-size: 18px; line-height: 1.3; margin-top: 4px; }
+    .slide-pl .inline-code { font-size: 18px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-pl" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Multi-Agent · Pipeline</div>
+        <h1 class="slide-title" id="slide-title">From Planner Logs to Explanations</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="pipeline anim-fade d1">
+              <div class="pipeline-step"><strong>MAPF Planner</strong><span>agents · paths · conflicts</span></div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-step blue"><strong>JSON Log</strong><span>canonical trace</span></div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-step"><strong>generate_kg.py</strong><span>Python · RDFLib</span></div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-step blue"><strong>maPO Knowledge Graph</strong><span>Turtle / OWL / JSON-LD</span></div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-step"><strong>SPARQL + NL</strong><span>explanation templates</span></div>
+            </div>
+            <div class="grid">
+              <figure class="fig anim-fade d2">
+                <img src="./assets/img/maPO_architecture.png" alt="maPO system architecture">
+                <figcaption>System architecture — planner-specific logs are mapped into a planner-agnostic, SPARQL-queryable knowledge graph.</figcaption>
+              </figure>
+              <section class="moves">
+                <div class="move anim-fade d3"><b>Planner-specific input</b><span>Raw MAPF traces &amp; optional args — not a custom explanation API.</span></div>
+                <div class="move anim-fade d4"><b>Ontology mapping</b><span><code>generate_kg.py</code> asserts RDF triples automatically.</span></div>
+                <div class="move anim-fade d5"><b>Planner-agnostic output</b><span>One graph drives queries, replay &amp; explanations.</span></div>
+                <div class="inline-code anim-fade d6">python generate_kg.py --log_file &lt;json&gt; --output &lt;ttl&gt;</div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

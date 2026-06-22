@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 13 | A Planning Workflow with the Ontology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-wf .lead { color: var(--text); font-size: 25px; line-height: 1.34; text-align: center; max-width: 1560px; margin: 0 auto 18px; }
+    .slide-wf .lead strong { color: var(--garnet); }
+    .slide-wf .fig { background: #fff; border: 3px solid var(--line); border-radius: 20px; padding: 22px 26px; }
+    .slide-wf .fig img { display: block; width: 100%; height: 560px; object-fit: contain; }
+    .slide-wf .chips { display: flex; gap: 14px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
+    .slide-wf .wchip { border-radius: 999px; font-size: 20px; font-weight: 700; padding: 11px 20px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-wf" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Single-Agent PO · Workflow</div>
+        <h1 class="slide-title" id="slide-title">A Planning Workflow with the Ontology</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <p class="lead anim-fade d1">The <strong>ontology</strong> turns PDDL into a queryable <strong>knowledge graph</strong>; <strong>SPARQL</strong> then powers downstream use cases.</p>
+            <figure class="fig anim-fade d2">
+              <img src="./assets/img/po_workflow.png" alt="Planning workflow using the ontology">
+            </figure>
+            <div class="chips anim-fade d3">
+              <span class="wchip" style="background:rgba(115,0,10,0.08);color:#73000a;">PDDL → Ontology → Knowledge Graph</span>
+              <span class="wchip" style="background:rgba(26,82,118,0.08);color:#1a5276;">SPARQL retrieves information</span>
+              <span class="wchip" style="background:rgba(46,125,50,0.1);color:#2e7d32;">Use cases: planner selection &amp; explanation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

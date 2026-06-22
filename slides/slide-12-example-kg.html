@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 12 | Example Knowledge Graph</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-kg .grid { display: grid; grid-template-columns: 660px 1006px; gap: 44px; align-items: center; }
+    .slide-kg .map { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .slide-kg .map .box { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 7px solid var(--garnet); border-radius: 12px; padding: 12px 16px; font-size: 21px; font-weight: 800; color: var(--garnet); flex: 1 1 0; text-align: center; }
+    .slide-kg .map .box.blue { border-left-color: var(--blue); color: var(--blue); }
+    .slide-kg .map .ar { color: var(--muted); font-size: 28px; font-weight: 800; }
+    .slide-kg .pts { display: flex; flex-direction: column; gap: 16px; }
+    .slide-kg .pt { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 8px solid var(--garnet); border-radius: 14px; padding: 16px 20px; }
+    .slide-kg .pt:nth-child(2) { border-left-color: var(--blue); }
+    .slide-kg .pt b { color: var(--garnet); display: block; font-size: 23px; font-weight: 800; }
+    .slide-kg .pt:nth-child(2) b { color: var(--blue); }
+    .slide-kg .pt span { color: var(--text); display: block; font-size: 21px; line-height: 1.32; margin-top: 5px; }
+    .slide-kg .fig { background: #fff; border: 3px solid var(--line); border-radius: 20px; padding: 18px; }
+    .slide-kg .fig img { display: block; width: 100%; height: 600px; object-fit: contain; }
+    .slide-kg .fig figcaption { color: var(--muted); font-size: 18px; font-style: italic; text-align: center; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-kg" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Single-Agent PO · Example</div>
+        <h1 class="slide-title" id="slide-title">From PDDL to a Knowledge Graph</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="grid">
+              <section>
+                <div class="map anim-fade d1">
+                  <div class="box">PDDL</div><div class="ar">→</div>
+                  <div class="box blue">RDF / OWL KG</div><div class="ar">→</div>
+                  <div class="box">SPARQL</div>
+                </div>
+                <div class="pts">
+                  <div class="pt anim-fade d2"><b>An ontology instance</b><span>Domain, problem &amp; plan files become a knowledge-graph instance of the ontology.</span></div>
+                  <div class="pt anim-fade d3"><b>Typed nodes &amp; edges</b><span>Domains, actions, predicates, objects &amp; plan steps become typed nodes; relations become object properties.</span></div>
+                  <div class="pt anim-fade d4"><b>Performance metadata</b><span>IPC planner results are attached, enabling semantic queries — shown here for Blocksworld.</span></div>
+                </div>
+              </section>
+              <figure class="fig anim-fade d3">
+                <img src="./assets/img/blocksworld_KG_example.png" alt="Blocksworld knowledge graph">
+                <figcaption>Knowledge graph for the Blocksworld domain — an instance of the planning ontology.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

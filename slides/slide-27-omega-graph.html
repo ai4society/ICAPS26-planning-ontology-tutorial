@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 26 | OMEGA — Browse the Graph</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .od .demo-grid { display: grid; grid-template-columns: 1200px 486px; gap: 40px; align-items: stretch; height: 100%; }
+    .od .demo-figure { background: #fff; border: 3px solid var(--line); border-radius: 20px; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .od .demo-frame { background: #fff; border-radius: 12px; overflow: hidden; flex: 1 1 auto; display: flex; align-items: center; justify-content: center; }
+    .od .demo-frame img { width: 100%; height: 100%; object-fit: contain; }
+    .od .demo-cap { color: var(--muted); font-size: 17px; font-style: italic; text-align: center; }
+    .od .side { display: flex; flex-direction: column; gap: 18px; justify-content: center; }
+    .od .tabs { display: flex; gap: 10px; flex-wrap: wrap; }
+    .od .tab { border-radius: 999px; font-size: 18px; font-weight: 700; padding: 9px 16px; opacity: .42; }
+    .od .tab.on { opacity: 1; box-shadow: 0 6px 14px rgba(0,0,0,0.10); }
+    .od .feat { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 8px solid #2e7d32; border-radius: 14px; padding: 16px 20px; }
+    .od .feat strong { color: var(--garnet); display: block; font-size: 23px; }
+    .od .feat span { color: var(--text); display: block; font-size: 20px; line-height: 1.32; margin-top: 5px; }
+    .od .chip-row { margin-top: 2px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas od" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">maPO · OMEGA Demo · 3 of 3</div>
+        <h1 class="slide-title" id="slide-title">Browse the Knowledge Graph</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="demo-grid">
+            <figure class="demo-figure anim-fade d1">
+              <div class="demo-frame"><img src="./assets/video/maPO_demo_graph.gif" alt="OMEGA ontology graph (WebVOWL)"></div>
+              <figcaption class="demo-cap">OMEGA · Ontology — the live maPO knowledge graph, explored interactively with WebVOWL.</figcaption>
+            </figure>
+            <section class="side">
+              <div class="tabs anim-fade d1">
+                <span class="tab" style="background:rgba(115,0,10,0.10);color:#73000a;">Grid Simulation</span>
+                <span class="tab" style="background:rgba(26,82,118,0.08);color:#1a5276;">Plan &amp; Agent Analysis</span>
+                <span class="tab on" style="background:rgba(46,125,50,0.12);color:#2e7d32;">Ontology</span>
+              </div>
+              <div class="feat anim-fade d2"><strong>See the schema live</strong><span>Classes &amp; object properties of maPO, laid out as an interactive graph.</span></div>
+              <div class="feat anim-fade d3"><strong>Drag, filter, zoom</strong><span>Explore how agents, conflicts &amp; sub-plans connect — the same graph the queries run over.</span></div>
+              <div class="chip-row anim-fade d4">
+                <span class="chip">Agent</span><span class="chip">CollisionEvent</span><span class="chip">JointPlan</span><span class="chip blue">PROV-O</span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

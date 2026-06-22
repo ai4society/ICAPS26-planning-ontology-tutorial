@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planning Ontology Tutorial — Deck PDF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+</head>
+<body>
+  <main class="print-deck-shell">
+    <div class="print-deck-actions">
+      <button class="print-action" type="button" onclick="window.print()">Download PDF</button>
+      <a class="print-action secondary" href="./index.html">Back to Deck</a>
+    </div>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-01-title.png" alt="Slide 1"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-02-outline.png" alt="Slide 2"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-03-background-divider.png" alt="Slide 3"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-04-automated-planning.png" alt="Slide 4"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-05-pddl-structured.png" alt="Slide 5"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-06-why-ontology.png" alt="Slide 6"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-07-ontology-basics.png" alt="Slide 7"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-08-po-divider.png" alt="Slide 8"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-09-po-scope.png" alt="Slide 9"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-10-po-schema-zoom.png" alt="Slide 10"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-11-competency-questions.png" alt="Slide 11"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-12-example-kg.png" alt="Slide 12"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-13-po-workflow.png" alt="Slide 13"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-14-usecase-planner.png" alt="Slide 14"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-15-usecase-explanation.png" alt="Slide 15"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-16-tool-divider.png" alt="Slide 16"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-17-tool-overview.png" alt="Slide 17"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-18-tool-demo.png" alt="Slide 18"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-19-mapo-divider.png" alt="Slide 19"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-20-mapf-motivation.png" alt="Slide 20"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-21-mapo-schema.png" alt="Slide 21"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-22-mapo-schema-zoom.png" alt="Slide 22"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-23-lifecycle.png" alt="Slide 23"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-24-pipeline.png" alt="Slide 24"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-25-omega-grid.png" alt="Slide 25"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-26-omega-qa.png" alt="Slide 26"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-27-omega-graph.png" alt="Slide 27"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-28-evaluation.png" alt="Slide 28"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-29-conclusion.png" alt="Slide 29"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-30-future-work.png" alt="Slide 30"></section>
+    <section class="print-page"><img class="print-image" src="./renders/export/slide-31-thankyou.png" alt="Slide 31"></section>
+  </main>
+  <script>
+    const t = `${Date.now()}`;
+    document.querySelectorAll(".print-image").forEach((im) => { const s = im.getAttribute("src"); if (s) im.src = `${s}?v=${t}`; });
+  </script>
+</body>
+</html>

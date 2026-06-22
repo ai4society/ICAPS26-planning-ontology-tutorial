@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 16 | The Planning Ontology Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-tool .grid { display: grid; grid-template-columns: 800px 866px; gap: 44px; align-items: center; }
+    .slide-tool .lead { color: var(--text); font-size: 26px; line-height: 1.4; }
+    .slide-tool .lead strong { color: var(--garnet); }
+    .slide-tool .stack-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+    .slide-tool .tc { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 7px solid var(--blue); border-radius: 12px; padding: 14px 18px; }
+    .slide-tool .tc b { color: var(--blue); display: block; font-size: 22px; font-weight: 800; }
+    .slide-tool .tc span { color: var(--text); display: block; font-size: 19px; margin-top: 3px; }
+    .slide-tool .links { color: var(--blue); font-family: "Source Code Pro", monospace; font-size: 18px; margin-top: 20px; line-height: 1.5; }
+    .slide-tool .links b { color: var(--garnet); }
+    .slide-tool .fig { background: #fff; border: 3px solid var(--line); border-radius: 20px; padding: 14px; }
+    .slide-tool .fig img { display: block; width: 100%; height: 490px; object-fit: contain; border-radius: 10px; }
+    .slide-tool .fig figcaption { color: var(--muted); font-size: 18px; font-style: italic; text-align: center; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-tool" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">The Planning Ontology Tool</div>
+        <h1 class="slide-title" id="slide-title">An Interactive Tool on Planning.Domains</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="grid">
+              <section>
+                <p class="lead anim-fade d1">A <strong>browser plugin</strong> for the Planning.Domains PDDL editor. It turns PDDL into an <strong>RDF/OWL knowledge graph</strong> you can visualize and query — entirely client-side, no server.</p>
+                <div class="stack-cards">
+                  <div class="tc anim-fade d2"><b>Pyodide</b><span>Python in the browser</span></div>
+                  <div class="tc anim-fade d3"><b>RDFLib</b><span>builds the graph</span></div>
+                  <div class="tc anim-fade d4"><b>D3.js</b><span>interactive visualization</span></div>
+                  <div class="tc anim-fade d5"><b>Comunica</b><span>SPARQL querying</span></div>
+                </div>
+                <div class="links anim-fade d6"><b>PURL</b> · github.com/ai4society/planning-ontology-tool<br>editor.planning.domains</div>
+              </section>
+              <figure class="fig anim-fade d3">
+                <img src="./assets/img/po_tool_frame.png" alt="Planning Ontology Tool screenshot">
+                <figcaption>The PO Tool inside the Planning.Domains editor.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

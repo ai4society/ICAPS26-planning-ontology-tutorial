@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 19 | maPO Schema</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-ms .grid { display: grid; grid-template-columns: 928px 738px; gap: 42px; align-items: center; }
+    .slide-ms .fig { background: #fff; border: 3px solid var(--line); border-radius: 20px; padding: 16px; }
+    .slide-ms .fig img { display: block; width: 100%; height: 500px; object-fit: contain; }
+    .slide-ms .fig figcaption { color: var(--muted); font-size: 17px; font-style: italic; text-align: center; margin-top: 8px; }
+    .slide-ms .lead { color: var(--text); font-size: 23px; line-height: 1.32; }
+    .slide-ms .lead strong { color: var(--garnet); }
+    .slide-ms .chip-row { margin-top: 14px; }
+    .slide-ms .standards-grid { margin-top: 20px; gap: 16px; }
+    .slide-ms .standard-card { min-height: 0; padding: 16px 18px; }
+    .slide-ms .standard-card h3 { font-size: 22px; }
+    .slide-ms .standard-card p { font-size: 19px; margin-top: 8px; }
+    .slide-ms .standard-card .tag { margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-ms" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Multi-Agent · Schema</div>
+        <h1 class="slide-title" id="slide-title">maPO Extends the Planning Ontology</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="grid">
+              <figure class="fig anim-left d2">
+                <img src="./assets/img/maPO_schema.png" alt="maPO schema extending the planning ontology">
+                <figcaption>maPO schema — Agent, AgentState, sub-plans, conflicts &amp; replanning, extending PO.</figcaption>
+              </figure>
+              <section>
+                <p class="lead anim d1">New multi-agent constructs build on PO's <strong>Planner · State · Plan · Problem</strong> categories:</p>
+                <div class="chip-row anim d2">
+                  <span class="chip">Agent</span><span class="chip">AgentState</span><span class="chip">CollisionEvent</span>
+                  <span class="chip">ConflictAlert</span><span class="chip">ReplanningStrategy</span>
+                  <span class="chip">AgentSubPlan</span><span class="chip">JointPlan</span>
+                </div>
+                <div class="standards-grid">
+                  <div class="standard-card anim d3"><h3>SOSA / SSN</h3><span class="tag">W3C</span><p>Agents as sensing &amp; acting platforms.</p></div>
+                  <div class="standard-card anim d4"><h3>CORA</h3><span class="tag">IEEE</span><p>Robot capabilities.</p></div>
+                  <div class="standard-card anim d5"><h3>Time Ontology</h3><span class="tag">W3C</span><p>Instants &amp; intervals for events.</p></div>
+                  <div class="standard-card anim d6"><h3>PROV-O</h3><span class="tag">W3C</span><p>Provenance of revised plans.</p></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

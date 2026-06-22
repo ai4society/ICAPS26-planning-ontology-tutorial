@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planning Ontology · ICAPS 2026 Tutorial</title>
+  <meta name="description" content="ICAPS 2026 Tutorial — Planning Ontology: Knowledge Representation and Explainable Planning. Turn PDDL and planner benchmarks into a queryable knowledge graph, then exploit it for planner selection and plan explanation.">
+  <meta property="og:title" content="Planning Ontology · ICAPS 2026 Tutorial">
+  <meta property="og:description" content="A tutorial on Knowledge Representation and Explainable Planning.">
+  <meta property="og:image" content="./assets/po_schema.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --garnet:#73000a; --blue:#1a5276; --green:#2e7d32; --text:#1f2328; --muted:#5a6169;
+      --line:#e4e7eb; --bg:#ffffff; --soft:#f6f7f9; --maxw:1120px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"Open Sans",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+    code,.mono{font-family:"Source Code Pro",monospace}
+
+    /* top bar */
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+    .brand{font-weight:800;color:var(--garnet);font-size:18px;letter-spacing:-.01em}
+    .brand span{color:var(--muted);font-weight:600}
+    .nav{display:flex;gap:24px}
+    .nav a{color:var(--text);font-weight:600;font-size:15px}
+    .nav a:hover{color:var(--garnet);text-decoration:none}
+    @media(max-width:760px){.nav{display:none}}
+
+    /* hero */
+    .hero{background:
+      radial-gradient(900px 360px at 88% -10%, rgba(115,0,10,.06), transparent 60%),
+      linear-gradient(180deg,#fff, #fbfafa);
+      border-bottom:1px solid var(--line)}
+    .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:64px 24px 70px}
+    @media(max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:34px;padding:44px 24px 50px}}
+    .badge{display:inline-block;background:rgba(26,82,118,.08);color:var(--blue);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:1px solid rgba(26,82,118,.16)}
+    h1.title{font-size:64px;line-height:1.02;letter-spacing:-.035em;color:var(--garnet);font-weight:800;margin-top:18px}
+    @media(max-width:880px){h1.title{font-size:46px}}
+    .subtitle{font-size:25px;font-weight:700;margin-top:14px;max-width:620px}
+    .subtitle .a{color:var(--garnet)}
+    .meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;color:var(--muted);font-weight:600;font-size:16px}
+    .meta b{color:var(--text)}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .chip{font-size:14px;font-weight:700;border-radius:999px;padding:7px 14px}
+    .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:16px;padding:13px 22px;border-radius:12px;border:2px solid transparent;cursor:pointer}
+    .btn.primary{background:var(--garnet);color:#fff}
+    .btn.primary:hover{background:#5c0008;text-decoration:none}
+    .btn.ghost{background:#fff;color:var(--garnet);border-color:rgba(115,0,10,.2)}
+    .btn.ghost:hover{border-color:var(--garnet);text-decoration:none}
+    .btn.blue{background:#fff;color:var(--blue);border-color:rgba(26,82,118,.25)}
+    .btn.blue:hover{border-color:var(--blue);text-decoration:none}
+    .hero-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 22px 50px rgba(0,0,0,.07);padding:18px}
+    .hero-card img{display:block;width:100%;border-radius:12px}
+    .hero-card .cap{color:var(--muted);font-size:14px;font-style:italic;text-align:center;margin-top:10px}
+
+    /* sections */
+    section{padding:64px 0}
+    section.alt{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .kicker{color:var(--blue);font-weight:800;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+    h2{font-size:34px;line-height:1.1;letter-spacing:-.02em;color:var(--garnet);font-weight:800;margin-top:8px}
+    .lead{font-size:19px;color:var(--text);max-width:860px;margin-top:16px}
+
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:34px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
+    @media(max-width:960px){.grid4{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.grid4,.grid2{grid-template-columns:1fr}}
+
+    .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;border-top:6px solid var(--garnet)}
+    .card .n{color:var(--garnet);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+    .card h3{font-size:21px;margin-top:8px;color:var(--text)}
+    .card p{color:var(--muted);font-size:16px;margin-top:8px}
+    .card.b{border-top-color:var(--blue)} .card.b .n{color:var(--blue)}
+    .card.g{border-top-color:var(--green)} .card.g .n{color:var(--green)}
+
+    /* notebooks */
+    .nb{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-left:8px solid var(--garnet);border-radius:14px;padding:18px 22px}
+    .nb+.nb{margin-top:14px}
+    .nb .idx{font-weight:800;color:var(--garnet);font-size:22px;font-family:"Source Code Pro",monospace}
+    .nb h3{font-size:20px}
+    .nb p{color:var(--muted);font-size:15px;margin-top:3px}
+    .nb .colab img{display:block;height:30px}
+
+    /* presenters */
+    .people{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:34px}
+    @media(max-width:760px){.people{grid-template-columns:1fr 1fr}}
+    .person{text-align:center}
+    .person img{width:128px;height:128px;border-radius:18px;object-fit:cover;border:1px solid var(--line);box-shadow:0 8px 18px rgba(0,0,0,.06)}
+    .person .nm{font-weight:800;margin-top:12px}
+    .person .af{color:var(--muted);font-size:14px}
+
+    /* resources */
+    .reslist{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+    @media(max-width:620px){.reslist{grid-template-columns:1fr}}
+    .res{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+    .res .k{font-weight:800;color:var(--garnet);min-width:118px}
+    .res a{font-family:"Source Code Pro",monospace;font-size:15px;word-break:break-all}
+
+    /* citation */
+    pre.cite{background:#0f1419;color:#e6edf3;border-radius:14px;padding:22px;overflow:auto;font-size:14px;line-height:1.5;margin-top:24px}
+    pre.cite .c1{color:#7ee787}.pre .c2{}
+
+    footer{background:#fff;border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:15px}
+    footer .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+    footer img{height:46px;opacity:.95}
+    .logos{display:flex;gap:22px;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">Planning Ontology <span>· ICAPS 2026 Tutorial</span></div>
+      <nav class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#contents">Contents</a>
+        <a href="#notebooks">Notebooks</a>
+        <a href="#presenters">Presenters</a>
+        <a href="#resources">Resources</a>
+        <a href="../slides/index.html">Slides ↗</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <span class="badge">ICAPS 2026 Tutorial</span>
+        <h1 class="title">Planning Ontology</h1>
+        <p class="subtitle">A Tutorial on <span class="a">Knowledge Representation</span> and <span class="a">Explainable Planning</span></p>
+        <div class="meta">
+          <div>📍 <b>ICAPS 2026</b> · Dublin, Ireland</div>
+          <div>🗓️ <b>Mon, June 29, 2026</b></div>
+          <div>⏱️ <b>09:00–12:30</b> · half-day</div>
+        </div>
+        <div class="chips">
+          <span class="chip" style="background:rgba(115,0,10,.09);color:#73000a">Knowledge Graphs</span>
+          <span class="chip" style="background:rgba(26,82,118,.08);color:#1a5276">Automated Planning</span>
+          <span class="chip" style="background:rgba(46,125,50,.1);color:#2e7d32">SPARQL</span>
+          <span class="chip" style="background:rgba(176,96,26,.1);color:#b0601a">Explainable AI</span>
+        </div>
+        <div class="ctas">
+          <a class="btn primary" href="../slides/index.html">▶ View Slides</a>
+          <a class="btn blue" href="#notebooks">⬡ Hands-on Notebooks</a>
+          <a class="btn ghost" href="https://purl.org/ai4s/ontology/planning" target="_blank" rel="noopener">↗ Ontology PURL</a>
+        </div>
+      </div>
+      <figure class="hero-card">
+        <img src="./assets/po_schema.png" alt="The Planning Ontology schema">
+        <figcaption class="cap">The Planning Ontology — Domain · Problem · Plan</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="wrap">
+      <div class="kicker">Overview</div>
+      <h2>From scattered planning artifacts to a queryable knowledge graph</h2>
+      <p class="lead">Automated planning offers many planners and domains, but the performance data and domain models sit in static, disconnected files such as IPC reports and PDDL. In this tutorial you model the core concepts — <code>PlanningDomain</code>, <code>Planner</code>, <code>Plan</code>, <code>Action</code>, <code>Step</code> — as an <b>OWL ontology</b>, populate a knowledge graph from public datasets, and query it with <b>SPARQL</b> as an "ask-me-anything" layer over planning knowledge. We then extend it to <b>multi-agent path finding (maPO)</b> for explainable planner behaviour.</p>
+      <div class="grid2">
+        <div class="card"><div class="n">Use Case 1</div><h3>Data-driven planner selection</h3><p>Rank planners for a domain by required features and past IPC performance — e.g. <em>"which planner has the highest relevance for blocksworld?"</em></p></div>
+        <div class="card b"><div class="n">Use Case 2</div><h3>Human-readable plan explanation</h3><p>Query a plan's ordered steps and their explanations from the graph, then compose a natural-language narrative.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENTS -->
+  <section id="contents" class="alt">
+    <div class="wrap">
+      <div class="kicker">What you'll learn</div>
+      <h2>Four parts, end to end</h2>
+      <p class="lead">From the motivation and PDDL structure, to building and exploiting the ontology, the interactive tool, and the multi-agent extension.</p>
+      <div class="grid4">
+        <div class="card"><div class="n">Part 1</div><h3>Background &amp; Motivation</h3><p>Automated planning, why PDDL is structured, and the case for an ontology.</p></div>
+        <div class="card b"><div class="n">Part 2</div><h3>The Planning Ontology</h3><p>Scope, competency questions, the workflow, and two use cases — selection &amp; explanation.</p></div>
+        <div class="card g"><div class="n">Part 3</div><h3>The PO Tool</h3><p>PDDL → knowledge graph → SPARQL, live inside the Planning.Domains editor.</p></div>
+        <div class="card"><div class="n">Part 4</div><h3>Multi-Agent: maPO</h3><p>Explainable MAPF — schema, provenance, the OMEGA dashboard &amp; evaluation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTEBOOKS -->
+  <section id="notebooks">
+    <div class="wrap">
+      <div class="kicker">Hands-on</div>
+      <h2>Runnable notebooks</h2>
+      <p class="lead">Each notebook opens in Google Colab with no local setup — the first cell installs dependencies and fetches the sample data. A <b>Core</b> path covers the essentials; optional <b>Go deeper</b> cells add SPARQL authoring and ontology extension.</p>
+      <div style="margin-top:30px">
+        <div class="nb">
+          <div class="idx">00</div>
+          <div><h3>Quickstart</h3><p>Load the prebuilt KG and answer a planner-selection and an explanation question via helpers — no SPARQL required.</p></div>
+          <a class="colab" href="https://colab.research.google.com/github/ai4society/ICAPS26-planning-ontology-tutorial/blob/main/notebooks/00_quickstart.ipynb" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
+        </div>
+        <div class="nb">
+          <div class="idx">01</div>
+          <div><h3>Ontology &amp; KG foundations</h3><p>Load the ontology from the PURL with RDFLib, explore the schema &amp; competency questions, ingest PDDL to populate a KG, run sample SPARQL.</p></div>
+          <a class="colab" href="https://colab.research.google.com/github/ai4society/ICAPS26-planning-ontology-tutorial/blob/main/notebooks/01_ontology_and_kg.ipynb" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
+        </div>
+        <div class="nb">
+          <div class="idx">02</div>
+          <div><h3>Planner selection</h3><p>Rank planners for blocksworld via SPARQL over a prebuilt IPC KG; optionally run a PDDL planner and write fresh results back.</p></div>
+          <a class="colab" href="https://colab.research.google.com/github/ai4society/ICAPS26-planning-ontology-tutorial/blob/main/notebooks/02_planner_selection.ipynb" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
+        </div>
+        <div class="nb">
+          <div class="idx">03</div>
+          <div><h3>Plan explanation</h3><p>Retrieve a plan's ordered steps and their explanations from the KG and assemble a template-based narrative.</p></div>
+          <a class="colab" href="https://colab.research.google.com/github/ai4society/ICAPS26-planning-ontology-tutorial/blob/main/notebooks/03_plan_explanation.ipynb" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTERS -->
+  <section id="presenters" class="alt">
+    <div class="wrap">
+      <div class="kicker">Presenters</div>
+      <div class="people">
+        <div class="person"><img src="./assets/author_bharath.png" alt="Bharath Muppasani"><div class="nm">Bharath Muppasani</div><div class="af">Univ. of South Carolina</div></div>
+        <div class="person"><img src="./assets/author_nitin.png" alt="Nitin Gupta"><div class="nm">Nitin Gupta</div><div class="af">Univ. of South Carolina</div></div>
+        <div class="person"><img src="./assets/author_biplav.png" alt="Biplav Srivastava"><div class="nm">Biplav Srivastava</div><div class="af">Univ. of South Carolina</div></div>
+        <div class="person"><img src="./assets/author_vignesh.png" alt="Vignesh Narayanan"><div class="nm">Vignesh Narayanan</div><div class="af">Univ. of South Carolina</div></div>
+      </div>
+      <p class="lead" style="text-align:center;margin:30px auto 0">AI Institute of South Carolina (AIISC) · University of South Carolina</p>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="wrap">
+      <div class="kicker">Resources</div>
+      <h2>Links &amp; references</h2>
+      <div class="reslist">
+        <div class="res"><span class="k">Slides</span><a href="../slides/index.html">View the HTML slide deck</a></div>
+        <div class="res"><span class="k">Ontology PURL</span><a href="https://purl.org/ai4s/ontology/planning" target="_blank" rel="noopener">purl.org/ai4s/ontology/planning</a></div>
+        <div class="res"><span class="k">PO Website</span><a href="https://ai4society.github.io/planning-ontology/" target="_blank" rel="noopener">ai4society.github.io/planning-ontology</a></div>
+        <div class="res"><span class="k">PO Tool</span><a href="https://github.com/ai4society/planning-ontology-tool" target="_blank" rel="noopener">github.com/ai4society/planning-ontology-tool</a></div>
+        <div class="res"><span class="k">maPO</span><a href="https://ai4society.github.io/ma-planning-ontology/" target="_blank" rel="noopener">ai4society.github.io/ma-planning-ontology</a></div>
+        <div class="res"><span class="k">Paper</span><a href="https://link.springer.com/article/10.1007/s44248-025-00093-9" target="_blank" rel="noopener">Discover Data, 2025</a></div>
+      </div>
+      <h2 style="margin-top:48px;font-size:24px">Cite the planning ontology</h2>
+      <pre class="cite"><span class="c1">@article</span>{muppasani2025planning,
+  title   = {Building a planning ontology to represent and exploit planning knowledge and its applications},
+  author  = {Muppasani, Bharath and Gupta, Nitin and Pallagani, Vishal and Srivastava, Biplav and Mutharaju, Raghava and Huhns, Michael N. and Narayanan, Vignesh},
+  journal = {Discover Data},
+  year    = {2025},
+  doi     = {10.1007/s44248-025-00093-9}
+}</pre>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>© 2026 AI4S · AI Institute of South Carolina (AIISC), University of South Carolina · Apache-2.0</div>
+      <div class="logos">
+        <img src="./assets/uofsc_logo.png" alt="University of South Carolina">
+        <img src="./assets/aiisc_logo.png" alt="AIISC">
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

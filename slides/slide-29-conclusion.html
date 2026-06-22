@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 24 | Conclusion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-cc .contrib-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .slide-cc .contrib-card { min-height: 250px; border-left-width: 12px; padding: 26px 24px; }
+    .slide-cc .contrib-card:nth-child(2) { border-left-color: var(--blue); }
+    .slide-cc .contrib-card:nth-child(2) .num { color: var(--blue); }
+    .slide-cc .contrib-card .ic { font-size: 46px; }
+    .slide-cc .contrib-card .num { margin-top: 12px; }
+    .slide-cc .contrib-card p { font-size: 23px; font-weight: 500; }
+    .slide-cc .takeaway-line { font-size: 27px; margin-top: 30px; }
+    .slide-cc .takeaway-line strong { color: var(--garnet); }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-cc" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Conclusion</div>
+        <h1 class="slide-title" id="slide-title">What We Built</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="contrib-grid">
+              <div class="contrib-card anim d1"><div class="ic">🧩</div><span class="num">Planning Ontology</span><p>An open, structured representation of planning knowledge — validated by competency questions and demonstrated on planner selection &amp; explanation.</p></div>
+              <div class="contrib-card anim d2"><div class="ic">🛠️</div><span class="num">The PO Tool</span><p>A browser plugin that turns PDDL into a knowledge graph with D3 visualization and SPARQL querying, live on Planning.Domains.</p></div>
+              <div class="contrib-card anim d3"><div class="ic">🤖</div><span class="num">maPO</span><p>A multi-agent extension for explainable MAPF — provenance-aware, planner-agnostic, with a strong user-study result.</p></div>
+            </div>
+            <p class="takeaway-line anim d4">Structuring planning knowledge as an ontology makes planners <strong>more performant</strong> and their behaviour <strong>explainable</strong> — from single-agent PDDL to multi-agent path finding.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

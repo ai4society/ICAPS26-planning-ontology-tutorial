@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 25 | Future Work</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-fw .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: stretch; }
+    .slide-fw .fcard { background: linear-gradient(180deg, var(--light), #fff); border: 2px solid rgba(17,17,17,0.08); border-top: 10px solid var(--garnet); border-radius: 20px; padding: 26px 28px; }
+    .slide-fw .fcard.blue { border-top-color: var(--blue); }
+    .slide-fw .fcard .ic { font-size: 46px; }
+    .slide-fw .fcard h3 { color: var(--garnet); font-size: 30px; font-weight: 800; margin-top: 12px; }
+    .slide-fw .fcard.blue h3 { color: var(--blue); }
+    .slide-fw .fcard ul { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 14px; }
+    .slide-fw .fcard li { color: var(--text); font-size: 23px; line-height: 1.32; padding-left: 28px; position: relative; }
+    .slide-fw .fcard li::before { content: "›"; color: var(--garnet); font-weight: 800; font-size: 26px; left: 4px; position: absolute; top: -2px; }
+    .slide-fw .fcard.blue li::before { color: var(--blue); }
+    .slide-fw .strip { margin-top: 26px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-fw" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Future Work</div>
+        <h1 class="slide-title" id="slide-title">Where This Goes Next</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="grid">
+              <div class="fcard anim-left d1">
+                <div class="ic">🧠</div>
+                <h3>Language Models &amp; Ontologies</h3>
+                <ul>
+                  <li>Ground LLM plan explanations in the ontology for context-aware, faithful narratives.</li>
+                  <li>Natural-language SPARQL querying over planning knowledge graphs.</li>
+                  <li>Template learning to adapt explanations to the user.</li>
+                </ul>
+              </div>
+              <div class="fcard blue anim-right d2">
+                <div class="ic">🔗</div>
+                <h3>Neuro-Symbolic Representations</h3>
+                <ul>
+                  <li>Integrate symbolic ontology knowledge with neural planners &amp; learners.</li>
+                  <li>Use structured constraints (e.g., macros) to guide and explain learned policies.</li>
+                  <li>Safety-rule checking &amp; conflict-driven diagnostics.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="micro-note strip anim d3">Also: extend <strong>maPO</strong> to dynamic, real-world multi-agent &amp; robotics settings (via SOSA/SSN), richer conflict taxonomies, and temporal / numeric planning.</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 02 | Tutorial Roadmap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-outline .road { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .slide-outline .road-card { background: linear-gradient(180deg, var(--light), #fff); border: 2px solid rgba(17,17,17,0.08); border-left: 10px solid var(--garnet); border-radius: 20px; padding: 24px 28px; display: flex; gap: 22px; align-items: flex-start; }
+    .slide-outline .road-card.blue { border-left-color: var(--blue); }
+    .slide-outline .road-num { background: var(--garnet); color: #fff; border-radius: 16px; font-size: 34px; font-weight: 800; min-width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; }
+    .slide-outline .road-card.blue .road-num { background: var(--blue); }
+    .slide-outline .road-card h3 { color: var(--garnet); font-size: 30px; font-weight: 800; line-height: 1.1; }
+    .slide-outline .road-card.blue h3 { color: var(--blue); }
+    .slide-outline .road-card p { color: var(--text); font-size: 21px; line-height: 1.34; margin-top: 8px; }
+    .slide-outline .thesis-top { margin-bottom: 26px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-outline" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Roadmap</div>
+        <h1 class="slide-title" id="slide-title">What This Tutorial Covers</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <p class="thesis thesis-top anim d1">One idea, end to end: <strong>structure planning knowledge as an ontology</strong>, then exploit it for performance and explanation — from single-agent PDDL to multi-agent path finding.</p>
+            <div class="road">
+              <div class="road-card anim d2"><div class="road-num">1</div><div><h3>Background &amp; Motivation</h3><p>Automated planning, why PDDL is structured, and the case for an ontology.</p></div></div>
+              <div class="road-card blue anim d3"><div class="road-num">2</div><div><h3>Single-Agent: The Planning Ontology</h3><p>Scope, competency questions, and two use cases — planner selection &amp; explanation.</p></div></div>
+              <div class="road-card anim d4"><div class="road-num">3</div><div><h3>The Planning Ontology Tool</h3><p>PDDL → knowledge graph → SPARQL, live inside Planning.Domains.</p></div></div>
+              <div class="road-card blue anim d5"><div class="road-num">4</div><div><h3>Multi-Agent: maPO</h3><p>Explainable MAPF — schema, provenance, the OMEGA dashboard &amp; evaluation.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

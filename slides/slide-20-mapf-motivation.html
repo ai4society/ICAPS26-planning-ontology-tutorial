@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 19 | Why a Multi-Agent Planning Ontology?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-mm .grid { display: grid; grid-template-columns: 940px 726px; gap: 46px; align-items: center; }
+    .slide-mm .pts { display: flex; flex-direction: column; gap: 15px; }
+    .slide-mm .pt { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 8px solid var(--garnet); border-radius: 14px; padding: 15px 20px; }
+    .slide-mm .pt.blue { border-left-color: var(--blue); }
+    .slide-mm .pt.red { border-left-color: var(--conflict); }
+    .slide-mm .pt b { color: var(--garnet); display: block; font-size: 23px; font-weight: 800; }
+    .slide-mm .pt.blue b { color: var(--blue); }
+    .slide-mm .pt.red b { color: var(--conflict); }
+    .slide-mm .pt span { color: var(--text); display: block; font-size: 20px; line-height: 1.3; margin-top: 4px; }
+    .slide-mm .answer { background: rgba(115,0,10,0.06); border: 2px solid rgba(115,0,10,0.14); border-radius: 14px; padding: 15px 20px; margin-top: 15px; font-size: 21px; line-height: 1.32; color: var(--text); }
+    .slide-mm .answer strong { color: var(--garnet); }
+    .slide-mm .fig { background: #fff; border: 3px solid var(--line); border-radius: 20px; padding: 18px; }
+    .slide-mm .fig img { display: block; width: 100%; height: 480px; object-fit: contain; }
+    .slide-mm .fig figcaption { color: var(--muted); font-size: 18px; font-style: italic; text-align: center; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-mm" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Multi-Agent · Motivation</div>
+        <h1 class="slide-title" id="slide-title">Why a Multi-Agent Planning Ontology?</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="grid">
+              <section>
+                <div class="pts">
+                  <div class="pt anim-fade d1"><b>Multi-Agent Path Finding (MAPF)</b><span>Plan collision-free paths for many agents on a shared graph — core to robotics &amp; logistics.</span></div>
+                  <div class="pt blue anim-fade d2"><b>Powerful but opaque</b><span>Solvers (CBS / ICBS, PIBT, RL / PRIMAL, MAPF-GPT) expose little about <em>why</em> decisions are made.</span></div>
+                  <div class="pt red anim-fade d3"><b>Explanations are required</b><span>Safety-critical &amp; regulatory settings demand transparent, human-readable answers.</span></div>
+                  <div class="pt anim-fade d4"><b>Prior work is fragmented</b><span>Visual segmentation, ASP why / why-not, taxonomies — with no unified, queryable model.</span></div>
+                </div>
+                <div class="answer anim-fade d5"><strong>maPO</strong> turns raw MAPF traces into a queryable knowledge graph for on-demand explanations — <strong>planner-agnostic</strong>.</div>
+              </section>
+              <figure class="fig anim-fade d3">
+                <img src="./assets/img/mapf_example.png" alt="Example MAPF instance with agents on a grid">
+                <figcaption>A MAPF instance: agents (squares) must reach their goals (circles) without collisions.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

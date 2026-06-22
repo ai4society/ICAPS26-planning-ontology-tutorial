@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 11 | Competency Questions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-cq .lead { color: var(--text); font-size: 24px; line-height: 1.34; max-width: 1660px; margin-bottom: 22px; }
+    .slide-cq .lead strong { color: var(--garnet); }
+    .slide-cq .legend { display: inline-flex; gap: 20px; margin-left: 14px; font-size: 18px; font-weight: 700; }
+    .slide-cq .legend .kw { color: var(--garnet); }
+    .slide-cq .legend .kd { color: var(--blue); }
+    .slide-cq .cq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 30px; }
+    .slide-cq .cq { display: grid; grid-template-columns: 58px 1fr; gap: 16px; align-items: center; background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-radius: 13px; padding: 13px 18px; }
+    .slide-cq .cq .tag { background: var(--garnet); color: #fff; border-radius: 9px; font-weight: 800; font-size: 20px; text-align: center; padding: 7px 0; }
+    .slide-cq .cq:nth-child(even) .tag { background: var(--blue); }
+    .slide-cq .cq p { color: var(--text); font-size: 21px; line-height: 1.26; }
+    .slide-cq .kw { color: var(--garnet); font-weight: 700; }
+    .slide-cq .kd { color: var(--blue); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-cq" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Single-Agent PO · Competency Questions</div>
+        <h1 class="slide-title" id="slide-title">Competency Questions Drive the Design</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <p class="lead anim-fade d1">Ten competency questions scope what the ontology must answer — each becomes a <strong>SPARQL query template</strong> over the knowledge graph.
+              <span class="legend"><span class="kw">■ planner / plan terms</span><span class="kd">■ domain / problem terms</span></span></p>
+            <div class="cq-grid">
+              <div class="cq anim-fade d2"><div class="tag">C1</div><p>What are the different types of <span class="kw">planners</span> used in automated planning?</p></div>
+              <div class="cq anim-fade d2"><div class="tag">C2</div><p>What is the <span class="kw">relevance</span> of <span class="kw">planners</span> in a given problem <span class="kd">domain</span>?</p></div>
+              <div class="cq anim-fade d3"><div class="tag">C3</div><p>What are the available <span class="kw">actions</span> for a given <span class="kd">domain</span>?</p></div>
+              <div class="cq anim-fade d3"><div class="tag">C4</div><p>What <span class="kd">problems</span> in a <span class="kd">domain</span> satisfy a given <span class="kw">condition</span>?</p></div>
+              <div class="cq anim-fade d4"><div class="tag">C5</div><p>What are all the <span class="kw">requirements</span> a given <span class="kd">domain</span> has?</p></div>
+              <div class="cq anim-fade d4"><div class="tag">C6</div><p>What is the <span class="kw">cost</span> of generating a <span class="kw">plan</span> for a given <span class="kd">problem</span>?</p></div>
+              <div class="cq anim-fade d5"><div class="tag">C7</div><p>How many <span class="kw">parameters</span> does a specific <span class="kw">action</span> have?</p></div>
+              <div class="cq anim-fade d5"><div class="tag">C8</div><p>What <span class="kw">planning type</span> does a specific <span class="kw">planner</span> belong to?</p></div>
+              <div class="cq anim-fade d6"><div class="tag">C9</div><p>What <span class="kw">requirements</span> does a given <span class="kw">planner</span> support?</p></div>
+              <div class="cq anim-fade d6"><div class="tag">C10</div><p>What are the different <span class="kw">parameter types</span> present in a <span class="kd">domain</span>?</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

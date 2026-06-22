@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 25 | OMEGA — Ask &amp; Explain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .od .demo-grid { display: grid; grid-template-columns: 1200px 486px; gap: 40px; align-items: stretch; height: 100%; }
+    .od .demo-figure { background: #fff; border: 3px solid var(--line); border-radius: 20px; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .od .demo-frame { background: #fff; border-radius: 12px; overflow: hidden; flex: 1 1 auto; display: flex; align-items: center; justify-content: center; }
+    .od .demo-frame img { width: 100%; height: 100%; object-fit: contain; }
+    .od .demo-cap { color: var(--muted); font-size: 17px; font-style: italic; text-align: center; }
+    .od .side { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+    .od .tabs { display: flex; gap: 10px; flex-wrap: wrap; }
+    .od .tab { border-radius: 999px; font-size: 18px; font-weight: 700; padding: 9px 16px; opacity: .42; }
+    .od .tab.on { opacity: 1; box-shadow: 0 6px 14px rgba(0,0,0,0.10); }
+    .od .qa { background: #f7f7f7; border-left: 10px solid var(--garnet); border-radius: 0 12px 12px 0; padding: 16px 20px; }
+    .od .qa .q { color: var(--garnet); font-weight: 800; font-size: 21px; }
+    .od .qa .a { color: var(--text); font-size: 20px; line-height: 1.34; margin-top: 6px; }
+    .od .feat { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 8px solid var(--blue); border-radius: 14px; padding: 14px 18px; }
+    .od .feat strong { color: var(--garnet); display: block; font-size: 22px; }
+    .od .feat span { color: var(--text); display: block; font-size: 19px; line-height: 1.3; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas od" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">maPO · OMEGA Demo · 2 of 3</div>
+        <h1 class="slide-title" id="slide-title">Ask Questions, Get Explanations</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="demo-grid">
+            <figure class="demo-figure anim-fade d1">
+              <div class="demo-frame"><img src="./assets/video/maPO_demo_qa.gif" alt="OMEGA ask question and answer"></div>
+              <figcaption class="demo-cap">OMEGA · Plan &amp; Agent Analysis — natural-language explanations generated from SPARQL over the graph.</figcaption>
+            </figure>
+            <section class="side">
+              <div class="tabs anim-fade d1">
+                <span class="tab" style="background:rgba(115,0,10,0.10);color:#73000a;">Grid Simulation</span>
+                <span class="tab on" style="background:rgba(26,82,118,0.10);color:#1a5276;">Plan &amp; Agent Analysis</span>
+                <span class="tab" style="background:rgba(46,125,50,0.10);color:#2e7d32;">Ontology</span>
+              </div>
+              <div class="qa anim-fade d2">
+                <div class="q">Q · What is Agent 3's final plan?</div>
+                <div class="a">"The agent starts at (8,5), moves to (7,0), waits at (7,5), then reaches its goal — cost 16.0."</div>
+              </div>
+              <div class="feat anim-fade d3"><strong>Per-agent questions</strong><span>Plan summary, conflicts, why an agent waited or re-routed, congested cells.</span></div>
+              <div class="feat anim-fade d4"><strong>Provenance-grounded</strong><span>Answers trace the resolution history via PROV-O — auditable, not hand-written.</span></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

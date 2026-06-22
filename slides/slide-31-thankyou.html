@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 26 | Thank You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .ty-canvas { background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 55%, #efe7e8 100%); }
+    .ty-inner { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+    .ty-kicker { color: var(--blue); font-size: 24px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+    .ty-title { color: var(--garnet); font-size: 96px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-top: 12px; }
+    .ty-rule { background: var(--garnet); border-radius: 999px; height: 10px; margin-top: 26px; width: 360px; }
+    .ty-sub { color: var(--text); font-size: 30px; font-weight: 600; margin-top: 26px; max-width: 1300px; }
+    .ty-sub strong { color: var(--garnet); }
+    .qr-row { display: flex; gap: 28px; margin-top: 44px; justify-content: flex-start; }
+    .qr-card { background: #fff; border: 2px solid rgba(17,17,17,0.08); border-radius: 18px; padding: 18px; text-align: center; width: 226px; }
+    .qr-card img { display: block; height: 150px; width: 150px; margin: 0 auto; object-fit: contain; }
+    .qr-card span { color: var(--garnet); display: block; font-size: 20px; font-weight: 800; margin-top: 12px; }
+    .qr-card small { color: var(--muted); display: block; font-family: "Source Code Pro", monospace; font-size: 13px; margin-top: 4px; word-break: break-all; }
+    .ty-contact { color: var(--muted); font-size: 20px; margin-top: 40px; }
+    .ty-contact strong { color: var(--garnet); }
+    .ty-side { position: absolute; right: 96px; top: 78px; display: flex; gap: 22px; align-items: center; }
+    .ty-side img.uofsc { height: 76px; }
+    .ty-side img.aiisc { height: 80px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas ty-canvas">
+      <div class="ty-side">
+        <img class="uofsc" src="./assets/img/uofsc_logo.png" alt="University of South Carolina">
+        <img class="aiisc" src="./assets/img/aiisc_logo.png" alt="AIISC">
+      </div>
+      <div class="slide-inner ty-inner">
+        <div class="ty-kicker anim">ICAPS 2026 Tutorial</div>
+        <h1 class="ty-title anim d1">Thank You!</h1>
+        <div class="ty-rule anim-rule" aria-hidden="true"></div>
+        <p class="ty-sub anim d2">Explore the <strong>Planning Ontology</strong>, the tool, and <strong>maPO</strong> — scan to dive in.</p>
+        <div class="qr-row">
+          <div class="qr-card anim-pop d3"><img src="./assets/img/qr/qr_website.png" alt="PO website QR"><span>PO Website</span><small>ai4society.github.io/planning-ontology</small></div>
+          <div class="qr-card anim-pop d4"><img src="./assets/img/qr/qr_purl.png" alt="PURL QR"><span>Ontology PURL</span><small>purl.org/ai4s/ontology/planning</small></div>
+          <div class="qr-card anim-pop d5"><img src="./assets/img/qr/qr_tool.png" alt="Tool repo QR"><span>PO Tool</span><small>github.com/ai4society/planning-ontology-tool</small></div>
+          <div class="qr-card anim-pop d6"><img src="./assets/img/qr/qr_mapo.png" alt="maPO website QR"><span>maPO</span><small>ai4society.github.io/ma-planning-ontology</small></div>
+        </div>
+        <p class="ty-contact anim d7"><strong>Contact:</strong> Bharath Muppasani · Nitin Gupta · Biplav Srivastava · Vignesh Narayanan — AI Institute of South Carolina (AIISC), University of South Carolina</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

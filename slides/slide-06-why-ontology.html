@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 06 | Why an Ontology?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-why .lead { color: var(--text); font-size: 28px; line-height: 1.36; max-width: 1640px; margin-bottom: 30px; }
+    .slide-why .lead strong { color: var(--garnet); }
+    .slide-why .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .slide-why .ocard { background: linear-gradient(180deg, var(--light), #fff); border: 2px solid rgba(17,17,17,0.08); border-top: 8px solid var(--garnet); border-radius: 18px; padding: 24px 22px; }
+    .slide-why .ocard:nth-child(even) { border-top-color: var(--blue); }
+    .slide-why .ocard .ic { font-size: 44px; }
+    .slide-why .ocard h3 { color: var(--garnet); font-size: 25px; font-weight: 800; margin-top: 12px; line-height: 1.12; }
+    .slide-why .ocard:nth-child(even) h3 { color: var(--blue); }
+    .slide-why .ocard p { color: var(--text); font-size: 21px; line-height: 1.34; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-why" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Background · Motivation</div>
+        <h1 class="slide-title" id="slide-title">Why an Ontology for Planning?</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <p class="lead anim d1">An <strong>ontology</strong> is a formal, shared representation of concepts and their relationships. Modeling planning domains and planner capabilities this way turns scattered metadata into <strong>queryable, reusable knowledge</strong>.</p>
+            <div class="cards">
+              <div class="ocard anim d2"><div class="ic">🗂️</div><h3>Organize Metadata</h3><p>Capture domains, planners, heuristics &amp; results in one structured model.</p></div>
+              <div class="ocard anim d3"><div class="ic">🔎</div><h3>Reason &amp; Query</h3><p>Answer semantic questions over planning knowledge with SPARQL.</p></div>
+              <div class="ocard anim d4"><div class="ic">🚀</div><h3>Improve Performance</h3><p>Select promising planners; extract macros as action-ordering constraints.</p></div>
+              <div class="ocard anim d5"><div class="ic">💬</div><h3>Explain &amp; Share</h3><p>Generate human-readable explanations and promote reuse across the community.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

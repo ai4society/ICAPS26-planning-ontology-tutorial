@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 07 | Gaps &amp; Contributions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-gap .grid { display: grid; grid-template-columns: 700px 962px; gap: 46px; align-items: center; }
+    .slide-gap .gap-card { background: var(--conflict-bg); border: 2px solid rgba(192,57,43,0.2); border-left: 8px solid var(--conflict); border-radius: 16px; padding: 18px 22px; }
+    .slide-gap .gap-card h3 { color: var(--conflict); font-size: 22px; font-weight: 800; }
+    .slide-gap .gap-card p { color: var(--text); font-size: 20px; line-height: 1.32; margin-top: 6px; }
+    .slide-gap .gap-stack { display: flex; flex-direction: column; gap: 16px; }
+    .slide-gap .col-label { color: var(--blue); font-size: 18px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; }
+    .slide-gap .contrib-grid { grid-template-columns: 1fr 1fr; }
+    .slide-gap .contrib-card { min-height: 150px; }
+    .slide-gap .contrib-card.full { grid-column: 1 / span 2; min-height: 0; }
+    .slide-gap .contrib-card p { font-size: 22px; }
+    .slide-gap .arrow-big { color: var(--garnet); font-size: 40px; font-weight: 800; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-gap" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Background · Gaps &amp; Contributions</div>
+        <h1 class="slide-title" id="slide-title">From Gaps to Contributions</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="grid">
+              <section>
+                <div class="col-label">Limitations of prior work</div>
+                <div class="gap-stack">
+                  <div class="gap-card anim-left d1"><h3>Not reusable / closed</h3><p>PLANET is comprehensive but not open-sourced — hard to extend or replicate.</p></div>
+                  <div class="gap-card anim-left d2"><h3>Narrow scope</h3><p>Plan-Taxonomy explains planner functionality but not domains &amp; performance.</p></div>
+                  <div class="gap-card anim-left d3"><h3>Unstructured metadata</h3><p>IPC performance data is rich but rarely modeled for reasoning.</p></div>
+                </div>
+              </section>
+              <section>
+                <div class="col-label">Our contributions</div>
+                <div class="contrib-grid">
+                  <div class="contrib-card full anim d2"><span class="num">Ontology Development</span><p>The most comprehensive open planning ontology to date, driven by competency questions.</p></div>
+                  <div class="contrib-card anim d3"><span class="num">Use Case 1</span><p>Identify the most promising planner for a domain (IPC-2011).</p></div>
+                  <div class="contrib-card anim d4"><span class="num">Use Case 2</span><p>Generate human-readable explanations for plans via SPARQL.</p></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

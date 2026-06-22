@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 13 | Use Case 2 — Explanation Generation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-u2 .grid { display: grid; grid-template-columns: 760px 906px; gap: 44px; align-items: center; }
+    .slide-u2 .uc-card { border-radius: 16px; padding: 18px 22px; }
+    .slide-u2 .uc-card.ch { background: var(--conflict-bg); border: 2px solid rgba(192,57,43,0.2); border-left: 8px solid var(--conflict); }
+    .slide-u2 .uc-card.ch h3 { color: var(--conflict); }
+    .slide-u2 .uc-card.ap { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 8px solid var(--garnet); margin-top: 16px; }
+    .slide-u2 .uc-card.ap h3 { color: var(--garnet); }
+    .slide-u2 .uc-card h3 { font-size: 23px; font-weight: 800; }
+    .slide-u2 .uc-card p { color: var(--text); font-size: 22px; line-height: 1.34; margin-top: 8px; }
+    .slide-u2 .code-block pre { font-size: 21px; line-height: 1.42; }
+    .slide-u2 .code-block .kw { color: var(--garnet); font-weight: 600; }
+    .slide-u2 .answer { background: #f7f7f7; border-left: 10px solid #2e7d32; border-radius: 0 12px 12px 0; padding: 16px 20px; margin-top: 16px; }
+    .slide-u2 .answer .q { color: #2e7d32; font-weight: 800; font-size: 21px; }
+    .slide-u2 .answer .a { color: var(--text); font-size: 22px; line-height: 1.34; margin-top: 6px; }
+    .slide-u2 .survey { margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-u2" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Use Case 2 · Explainability</div>
+        <h1 class="slide-title" id="slide-title">Generating Plan Explanations</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="grid">
+              <section>
+                <div class="uc-card ch anim-left d1"><h3>Challenge</h3><p>Planners produce correct plans but little human-readable rationale for <em>what</em> happens and <em>why</em>.</p></div>
+                <div class="uc-card ap anim-left d2"><h3>Ontology-driven approach</h3><p>Run <strong>SPARQL</strong> over the plan knowledge graph, then fill results into natural-language explanation templates.</p></div>
+                <div class="micro-note survey anim-left d3"><strong>User survey:</strong> ontology-generated explanations rated highly across three explanation types (avg out of 5).</div>
+              </section>
+              <section>
+                <div class="code-block anim-right d2">
+                  <div class="label">SPARQL · high-level plan summary</div>
+<pre><span class="kw">SELECT</span> ?step ?action ?object <span class="kw">WHERE</span> {
+  ?plan :hasStep ?step .
+  ?step :hasAction ?action ;
+        :actsOn   ?object ;
+        :stepNumber ?n .
+} <span class="kw">ORDER BY</span> ?n</pre>
+                </div>
+                <div class="answer anim-right d3">
+                  <div class="q">Explanation →</div>
+                  <div class="a">"First unstack B from A, then place A on B and B on C to build the goal tower."</div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

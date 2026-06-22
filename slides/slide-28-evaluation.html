@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 28 | maPO Evaluation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-ev .lead { color: var(--text); font-size: 26px; line-height: 1.36; text-align: center; max-width: 1500px; margin: 0 auto 36px; }
+    .slide-ev .lead strong { color: var(--garnet); }
+    .slide-ev .mrow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .slide-ev .mcard { border-radius: 20px; color: #fff; padding: 30px 20px; text-align: center; background: var(--garnet); }
+    .slide-ev .mcard.blue { background: var(--blue); }
+    .slide-ev .mcard.navy { background: var(--navy); }
+    .slide-ev .mcard .v { display: block; font-size: 66px; font-weight: 800; line-height: 1; }
+    .slide-ev .mcard .l { display: block; font-size: 21px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 14px; }
+    .slide-ev .mcard .d { display: block; font-size: 19px; margin-top: 8px; opacity: 0.92; }
+    .slide-ev .note { margin: 34px auto 0; max-width: 1400px; text-align: center; font-size: 23px; }
+    .slide-ev .foot { color: var(--muted); font-size: 17px; font-style: italic; margin-top: 26px; text-align: center; }
+    .slide-ev .foot strong { color: var(--garnet); }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-ev" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Multi-Agent · Evaluation</div>
+        <h1 class="slide-title" id="slide-title">Evaluating maPO Explanations</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <p class="lead anim-fade d1">Two complementary evaluations — automatic <strong>readability</strong> (cognitive load) and a human <strong>user study</strong> across RL, CBS &amp; ICBS scenarios.</p>
+            <div class="mrow">
+              <div class="mcard anim-fade d2"><span class="v">94.4</span><span class="l">Flesch Reading Ease</span><span class="d">“very easy” · grade ~1–5</span></div>
+              <div class="mcard blue anim-fade d3"><span class="v">95.2%</span><span class="l">Preferred maPO</span><span class="d">159 / 167 judgements</span></div>
+              <div class="mcard anim-fade d4"><span class="v">4.40</span><span class="l">Clarity / 5</span><span class="d">p &lt; .001</span></div>
+              <div class="mcard navy anim-fade d5"><span class="v">N = 28</span><span class="l">Participants</span><span class="d">graduate &amp; undergraduate</span></div>
+            </div>
+            <div class="micro-note note anim-fade d5">Cognitive-load metrics (FRE · ARI · CLI) confirm the explanations are <strong>linguistically simple</strong> and easy to comprehend — even for complex 7-agent scenarios.</div>
+            <p class="foot anim-fade d6">* maPO &amp; OMEGA work additionally with <strong>Ritirupa Dey</strong> (University of South Carolina).</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

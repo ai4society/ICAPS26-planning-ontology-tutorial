@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 04 | Automated Planning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-ap .lead { color: var(--text); font-size: 28px; line-height: 1.36; text-align: center; max-width: 1500px; margin: 0 auto 30px; }
+    .slide-ap .lead strong { color: var(--garnet); }
+    .slide-ap .flow { display: flex; align-items: stretch; gap: 16px; justify-content: center; margin-bottom: 30px; }
+    .slide-ap .node { width: 360px; background: linear-gradient(180deg, var(--light), #fff); border: 3px solid var(--garnet); border-radius: 18px; padding: 20px 14px; text-align: center; }
+    .slide-ap .node.blue { border-color: var(--blue); }
+    .slide-ap .node .ic { font-size: 42px; }
+    .slide-ap .node strong { display: block; color: var(--garnet); font-size: 26px; font-weight: 800; margin-top: 8px; }
+    .slide-ap .node.blue strong { color: var(--blue); }
+    .slide-ap .node span { display: block; color: var(--muted); font-size: 19px; margin-top: 6px; }
+    .slide-ap .arrow { display: flex; align-items: center; color: var(--garnet); font-size: 44px; font-weight: 800; }
+    .slide-ap .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .slide-ap .card { background: var(--light); border: 2px solid rgba(17,17,17,0.08); border-left: 8px solid var(--garnet); border-radius: 16px; padding: 18px 22px; }
+    .slide-ap .card:nth-child(2) { border-left-color: var(--blue); }
+    .slide-ap .card h4 { color: var(--garnet); font-size: 23px; font-weight: 800; }
+    .slide-ap .card:nth-child(2) h4 { color: var(--blue); }
+    .slide-ap .card p { color: var(--text); font-size: 21px; line-height: 1.32; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-ap" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Background · Automated Planning</div>
+        <h1 class="slide-title" id="slide-title">Automated Planning, at Scale</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <p class="lead anim-fade d1"><strong>Automated planning</strong> finds an ordered sequence of actions that transforms an <strong>initial state</strong> into a <strong>goal state</strong>.</p>
+            <div class="flow anim-fade d2">
+              <div class="node blue"><div class="ic">📥</div><strong>Initial State + Goal</strong><span>specified in PDDL</span></div>
+              <div class="arrow">→</div>
+              <div class="node"><div class="ic">⚙️</div><strong>Planner</strong><span>search&nbsp;+&nbsp;heuristic</span></div>
+              <div class="arrow">→</div>
+              <div class="node blue"><div class="ic">📋</div><strong>Plan</strong><span>action sequence</span></div>
+            </div>
+            <div class="cards">
+              <div class="card anim-fade d3"><h4>A vast ecosystem</h4><p>Many domains, planners, search algorithms &amp; heuristics — each combination differs in quality, cost &amp; optimality.</p></div>
+              <div class="card anim-fade d4"><h4>Rich empirical data</h4><p>The International Planning Competition (IPC) yields performance results across many domains.</p></div>
+              <div class="card anim-fade d5"><h4>But unstructured</h4><p>This metadata is rarely captured in a structured, reasoning-friendly form — the gap we address.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

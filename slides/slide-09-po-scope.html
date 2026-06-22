@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 09 | Planning Ontology — Structure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./slide-theme.css">
+  <script src="./slide-deck.js" defer></script>
+  <style>
+    .slide-scope .stat-row { display: flex; gap: 22px; justify-content: center; margin-bottom: 30px; }
+    .slide-scope .stat { background: var(--garnet); color: #fff; border-radius: 16px; padding: 16px 38px; text-align: center; }
+    .slide-scope .stat.blue { background: var(--blue); }
+    .slide-scope .stat b { display: block; font-size: 50px; font-weight: 800; line-height: 1; }
+    .slide-scope .stat span { display: block; font-size: 18px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 8px; }
+    .slide-scope .cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .slide-scope .cat { background: linear-gradient(180deg, var(--light), #fff); border: 2px solid rgba(17,17,17,0.08); border-top: 10px solid var(--garnet); border-radius: 18px; padding: 24px 26px; }
+    .slide-scope .cat.blue { border-top-color: var(--blue); }
+    .slide-scope .cat.green { border-top-color: #2e7d32; }
+    .slide-scope .cat h3 { color: var(--garnet); font-size: 30px; font-weight: 800; }
+    .slide-scope .cat.blue h3 { color: var(--blue); }
+    .slide-scope .cat.green h3 { color: #2e7d32; }
+    .slide-scope .cat p { color: var(--muted); font-size: 19px; margin-top: 4px; }
+    .slide-scope .cat .chip-row { margin-top: 16px; }
+    .slide-scope .cat .chip { font-size: 18px; }
+    .slide-scope .foot { color: var(--muted); font-size: 20px; margin-top: 28px; text-align: center; }
+    .slide-scope .foot strong { color: var(--garnet); }
+  </style>
+</head>
+<body>
+  <div class="preview-shell">
+    <main class="slide-canvas slide-scope" aria-labelledby="slide-title">
+      <div class="slide-inner">
+        <div class="slide-kicker">Single-Agent PO · Scope</div>
+        <h1 class="slide-title" id="slide-title">The Planning Ontology — Structure</h1>
+        <div class="slide-rule anim-rule" aria-hidden="true"></div>
+        <div class="slide-body">
+          <div class="body-center">
+            <div class="stat-row anim-fade d1">
+              <div class="stat"><b>19</b><span>Classes</span></div>
+              <div class="stat blue"><b>25</b><span>Object properties</span></div>
+            </div>
+            <div class="cats">
+              <div class="cat anim-fade d2">
+                <h3>Domain</h3><p>What a planner can do</p>
+                <div class="chip-row"><span class="chip">PlanningDomain</span><span class="chip">Action</span><span class="chip">Predicate</span><span class="chip">Requirement</span><span class="chip">MacroAction</span></div>
+              </div>
+              <div class="cat blue anim-fade d3">
+                <h3>Problem</h3><p>What must be solved</p>
+                <div class="chip-row"><span class="chip blue">PlanningProblem</span><span class="chip blue">InitialState</span><span class="chip blue">GoalState</span><span class="chip blue">ProblemObject</span></div>
+              </div>
+              <div class="cat green anim-fade d4">
+                <h3>Plan</h3><p>The solution &amp; its quality</p>
+                <div class="chip-row"><span class="chip" style="background:rgba(46,125,50,0.1);color:#2e7d32;">Plan</span><span class="chip" style="background:rgba(46,125,50,0.1);color:#2e7d32;">Step</span><span class="chip" style="background:rgba(46,125,50,0.1);color:#2e7d32;">PlanCost</span></div>
+              </div>
+            </div>
+            <p class="foot anim-fade d5">Built from IPC data, validated by competency questions, and <strong>extensible beyond IPC / PDDL</strong>. &nbsp;Full schema next&nbsp;→</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
