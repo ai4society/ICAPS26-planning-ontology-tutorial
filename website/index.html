@@ -104,6 +104,18 @@
     .res .k{font-weight:800;color:var(--garnet);min-width:118px}
     .res a{font-family:"Source Code Pro",monospace;font-size:15px;word-break:break-all}
 
+    /* papers */
+    .paperlist{display:grid;gap:14px;margin-top:24px}
+    .paperref{background:#fff;border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:12px;padding:18px 20px}
+    .paperref .tag{display:inline-block;color:var(--blue);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+    .paperref h3{font-size:19px;line-height:1.3;margin-top:6px;color:var(--text)}
+    .paperref p{font-size:15px;margin-top:6px}
+    .paperref .authors{color:var(--text)}
+    .paperref .venue{color:var(--muted)}
+    .paperlinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .paperlinks a{font-family:"Open Sans",Arial,sans-serif;font-size:14px;font-weight:800;color:var(--garnet);border:1px solid rgba(115,0,10,.2);border-radius:999px;padding:6px 11px}
+    .paperlinks a:hover{border-color:var(--garnet);text-decoration:none}
+
     /* citation */
     pre.cite{background:#0f1419;color:#e6edf3;border-radius:14px;padding:22px;overflow:auto;font-size:14px;line-height:1.5;margin-top:24px}
     pre.cite .c1{color:#7ee787}.pre .c2{}
@@ -150,6 +162,7 @@
         <div class="ctas">
           <a class="btn primary" href="../slides/index.html">▶ View Slides</a>
           <a class="btn blue" href="#notebooks">⬡ Hands-on Notebooks</a>
+          <a class="btn blue" href="https://ai4society.github.io/projects/ontology/index.html" target="_blank" rel="noopener">↗ Project Page</a>
           <a class="btn ghost" href="https://purl.org/ai4s/ontology/planning" target="_blank" rel="noopener">↗ Ontology PURL</a>
         </div>
       </div>
@@ -240,11 +253,58 @@
       <h2>Links &amp; references</h2>
       <div class="reslist">
         <div class="res"><span class="k">Slides</span><a href="../slides/index.html">View the HTML slide deck</a></div>
+        <div class="res"><span class="k">Project Page</span><a href="https://ai4society.github.io/projects/ontology/index.html" target="_blank" rel="noopener">ai4society.github.io/projects/ontology</a></div>
         <div class="res"><span class="k">Ontology PURL</span><a href="https://purl.org/ai4s/ontology/planning" target="_blank" rel="noopener">purl.org/ai4s/ontology/planning</a></div>
         <div class="res"><span class="k">PO Website</span><a href="https://ai4society.github.io/planning-ontology/" target="_blank" rel="noopener">ai4society.github.io/planning-ontology</a></div>
         <div class="res"><span class="k">PO Tool</span><a href="https://github.com/ai4society/planning-ontology-tool" target="_blank" rel="noopener">github.com/ai4society/planning-ontology-tool</a></div>
         <div class="res"><span class="k">maPO</span><a href="https://ai4society.github.io/ma-planning-ontology/" target="_blank" rel="noopener">ai4society.github.io/ma-planning-ontology</a></div>
         <div class="res"><span class="k">Paper</span><a href="https://link.springer.com/article/10.1007/s44248-025-00093-9" target="_blank" rel="noopener">Discover Data, 2025</a></div>
+      </div>
+      <h2 style="margin-top:48px;font-size:24px">Related papers</h2>
+      <div class="paperlist">
+        <article class="paperref">
+          <span class="tag">Journal · 2025</span>
+          <h3>Building a Planning Ontology to Represent and Exploit Planning Knowledge and Its Applications</h3>
+          <p class="authors">Bharath Chandra Muppasani, Nitin Gupta, Vishal Pallagani, Biplav Srivastava, Raghava Mutharaju, Michael N. Huhns, and Vignesh Narayanan</p>
+          <p class="venue"><em>Discover Data</em> 3, 55 (2025). DOI: 10.1007/s44248-025-00093-9</p>
+          <div class="paperlinks">
+            <a href="https://link.springer.com/article/10.1007/s44248-025-00093-9" target="_blank" rel="noopener">Paper</a>
+            <a href="https://ai4society.github.io/planning-ontology/" target="_blank" rel="noopener">PO Website</a>
+          </div>
+        </article>
+        <article class="paperref">
+          <span class="tag">Conference · 2024</span>
+          <h3>Building a Plan Ontology to Represent and Exploit Planning Knowledge and Its Applications</h3>
+          <p class="authors">Bharath Chandra Muppasani, Nitin Gupta, Vishal Pallagani, Biplav Srivastava, Raghava Mutharaju, Michael N. Huhns, and Vignesh Narayanan</p>
+          <p class="venue">Eighth International Conference on Data Science and Management of Data (CODS-COMAD '24), India, 2024.</p>
+          <div class="paperlinks">
+            <a href="https://ai4society.github.io/projects/ontology/files/CODS_24_AI_Planning_Ontology.pdf" target="_blank" rel="noopener">Paper</a>
+            <a href="https://ai4society.github.io/planning-ontology/" target="_blank" rel="noopener">PO Website</a>
+          </div>
+        </article>
+        <article class="paperref">
+          <span class="tag">Symposium · 2026</span>
+          <h3>maPO: An Ontology for Multi-Agent Path Finding and Its Usage for Explaining Planner Behaviour</h3>
+          <p class="authors">Bharath Muppasani, Ritirupa Dey, Biplav Srivastava, and Vignesh Narayanan</p>
+          <p class="venue">AAAI Spring Symposium on Machine Learning and Knowledge Engineering for Knowledge-Grounded Semantic Agents (AAAI-MAKE 2026).</p>
+          <div class="paperlinks">
+            <a href="https://ai4society.github.io/projects/ontology/files/MAPF_Ontology.pdf" target="_blank" rel="noopener">Paper</a>
+            <a href="https://ai4society.github.io/projects/ontology/files/maPO-AAAI-MAKE.pdf" target="_blank" rel="noopener">Slides</a>
+            <a href="https://ai4society.github.io/ma-planning-ontology/" target="_blank" rel="noopener">maPO Website</a>
+          </div>
+        </article>
+        <article class="paperref">
+          <span class="tag">Demo · 2026</span>
+          <h3>OMEGA: An Ontology-Driven Tool for Explaining Multi-Agent Path Finding</h3>
+          <p class="authors">Bharath Muppasani, Ritirupa Dey, Biplav Srivastava, and Vignesh Narayanan</p>
+          <p class="venue">Proceedings of the Thirty-Ninth AAAI Conference on Artificial Intelligence, Demonstrations Track, Singapore, January 2026. DOI: 10.1609/aaai.v40i48.42367</p>
+          <div class="paperlinks">
+            <a href="https://ai4society.github.io/publications/papers_local/AAAI_26_Demo_MAPF_Ontology.pdf" target="_blank" rel="noopener">Paper</a>
+            <a href="https://doi.org/10.1609/aaai.v40i48.42367" target="_blank" rel="noopener">DOI</a>
+            <a href="https://ai4society.github.io/projects/ontology/files/omega_poster_AAAI-2026.pdf" target="_blank" rel="noopener">Poster</a>
+            <a href="https://ai4society.github.io/ma-planning-ontology/" target="_blank" rel="noopener">maPO Website</a>
+          </div>
+        </article>
       </div>
       <h2 style="margin-top:48px;font-size:24px">Cite the planning ontology</h2>
       <pre class="cite"><span class="c1">@article</span>{muppasani2025planning,
